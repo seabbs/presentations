@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reproducible (and Accessible) Research</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Sam Abbott" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Reproducible (and Accessible) Research
+## Research as Software?
+### Sam Abbott
+### 2018/03/06
+
+---
+
+
+
+
+# Introduction
+
+- This talk will give a lightening overview of the tools currently available to facilitate reproducible research - focusing on the tools available for R users.
+
+- It will explore why reproducible research is increasingly important as science becomes increasing dependent on code.
+---
+
+# Traditional Research
+
+1. Develop idea
+
+1. Get data
+
+1. Analysis
+
+1. iteratively get more data and improve analysis
+
+1. Write up results as a peer reviewed publication
+
+1. Submit to Journals
+
+1. Respond to reviewer comments
+
+1. Publish
+
+---
+
+# Example: 
+
+- Aim 
+- Method
+- Results
+- Applications
+
+---
+
+# Issues
+
+- Data
+- Method
+- Full results
+
+---
+
+# Research as Software: General Tools
+
+Software developers have developed many practices and technologies to make their work usable by others. Some examples include;
+
+- Standalone software
+
+- Git, GitHub, GitLab etc.
+
+- Unit testing
+
+- Continuous integration, i.e [travis.org](https://travis-ci.org/),[https://circleci.com/](https://circleci.com/), [AppVeyor](https://www.appveyor.com/), etc.
+
+- Make
+
+- Docker
+
+---
+
+# Standalone Software
+
+---
+
+# Git
+
+---
+
+# Unit Testing
+
+---
+
+
+# Continous Integration
+
+
+---
+
+# Make
+
+---
+
+# Docker
+
+---
+
+# Research as Software: R specific Tools
+
+R's package based ecosystem has led to the development of many tools, both explicitly for research, and also for tools for package development etc. which can be re-purposed. Some examples of these are;
+
+- Rstudio projects
+
+- here
+
+- Rmarkdown (alternatively [jupyter](https://jupyter.org/) notebooks), with [bookdown](https://bookdown.org/)
+
+- R packages, which allows the use of the following;
+
+  - usethis and devtools
+  
+  - pkgdown
+  
+  - testthat
+  
+  - roxygen2
+  
+- drake
+- pomp
+
+---
+
+# Rstudio projects
+
+---
+
+# here
+
+---
+
+# Rmarkdown
+
+---
+
+# R packages
+
+---
+
+# usethis and devtools
+
+---
+
+# pkgdown
+
+---
+
+# testthat
+
+---
+
+# drake
+
+---
+
+# Example: NBA Free Throw Data Analysis
+
+- Data on NBA free throws
+
+- Exploratory analysis on the data (as part of a job interview)
+
+- Produce documentation for the analysis
+
+- Wrapped in an R package ([MangoTest](https://github.com/seabbs/MangoTest))
+
+---
+
+# Raw data
+
+---
+
+# R code
+
+---
+
+# Documentation
+
+---
+
+# Tests
+
+---
+
+# Analysis
+
+---
+
+# Makefiles
+
+
+---
+
+
+# Dockerfile
+
+
+---
+
+# Problems with this approach
+
+- Large raw data (or confidential data)
+
+- Large results files
+
+---
+
+# Solutions - Raw Data
+
+
+- Store raw data externally, bind for processing, and then store the processed data (which is hopefully small enough to be contained in the repository)
+
+- External docker container
+
+- External database
+
+- External package to process raw data, including data instructions. i.e [tbinenglanddataclean](https://www.samabbott.co.uk/tbinenglanddataclean).
+
+- External package to interface with the data and provide functionality to enable rapid exploration, i.e [getTBinR](https://www.samabbott.co.uk/getTBinR/)
+
+---
+
+# Solutions - Results
+
+- As for raw data
+
+- Optionally summarise to a form which can be stored
+
+- If results cannot be summarised to a point at which they can be easily made public consider providing an interactive interface to the data. This could use [shiny](https://shiny.rstudio.com/), an example of this approach can be seen [here](http://www.seabbs.co.uk/shiny/fcdashboard/).
+
+## More needs to be done here!
+
+---
+
+# Wrap up
+
+This talk has given a lightening quick tour of some of the software tools available which may be used to facilitate reproducible research - focusing on those available for R users.
+
+---
+
+# Key Messages
+
+- The published paper should only be the advert for the research. The repository containing the code, documentation, tests etc. should be considered as the research.
+
+- Considering how you would reproduce your work on another computer is a good start!
+
+- Practices and tools can be borrowed from software developers
+
+- All of these techniques are already widely used by data scientists in Businesses. This means that there are lots of resources for learning more.
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
