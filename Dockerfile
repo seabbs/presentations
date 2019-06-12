@@ -16,4 +16,4 @@ ADD . /home/rstudio/SeabbsPresents
 RUN Rscript -e 'install.packages(c("getTBinR"))'
 
 ## Get github packages
-RUN Rscript -e 'devtools::install_github('yihui/xaringan')`
+RUN Rscript -e 'devtools::install_github("yihui/xaringan")'
