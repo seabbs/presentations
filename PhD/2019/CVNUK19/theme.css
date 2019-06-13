@@ -1,0 +1,20 @@
+.footnote {
+  position: absolute;
+  bottom: 3em;
+  padding-right: 4em;
+  font-size: 80%;
+}
+
+.small-footnote {
+  position: absolute;
+  bottom: 3em;
+  padding-right: 4em;
+  font-size: 70%;
+}
+
+.tiny-footnote {
+  position: absolute;
+  bottom: 3em;
+  padding-right: 4em;
+  font-size: 55%;
+}

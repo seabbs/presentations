@@ -1,11 +1,12 @@
 ---
 title: "What do we really know about BCG?"
-subtitle: "(from a mathematicians perspective)"
+subtitle: ""
 author: "Sam Abbott (@seabbs)"
 institute: "University of Bristol"
-date: "2016/06/14"
+date: "2019/06/14"
 output:
   xaringan::moon_reader:
+    css: ["default", "default-fonts", "theme.css"]
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -23,13 +24,11 @@ class: inverse
 
 # Outline
 
-1. Background
+1. Tuberculosis
 
-1. Introduction to the BCG
+1. The Bacillus Calmette–Guérin (BCG) vaccine
 
-1. Vaccine action and effectiveness
-
-1. Duration of protection
+1. Vaccine action, effectiveness, and duration
 
 1. Non-specific effects
 
@@ -37,13 +36,13 @@ class: inverse
 
 1. Summary
 
-1. Signposting
+1. Thank you + signposting
 
 ---
 class: inverse, center, middle
 
 
-# Background
+# Tuberculosis
 
 ---
 
@@ -65,7 +64,7 @@ class: inverse, center, middle
 
 # Global Tuberculosis<sup>1</sup> 
 
-```{r, map-tb-globally, echo = FALSE, message = FALSE, fig.height = 5, fig.width = 10, dev = 'svg'}
+```{r, map-tb-globally, echo = FALSE, message = FALSE, fig.height = 6, fig.width = 10, dev = 'svg'}
 getTBinR::map_tb_burden()
 ```
 
@@ -143,17 +142,47 @@ class: inverse, center, middle
 
 - Initially public acceptance was slow, with low take up until after the Second World War.
 
-- Since then most counntries have introduced it into their routine vaccination schedules and it remains one of the most commonly administered vaccines.
+- Since then most countries have introduced it into their routine vaccination schedules and it remains one of the most commonly administered vaccines.
 
 - Howover, controversy remains and several countries have scaled back, or redirected, their usage in recent years.
 
 ---
 
-# Usage
+# Usage - WHO recommendations<sup>1</sup>
 
-## WHO recommendations
 
-## In the United Kingdom
+* Recommends vaccination for all neonates as early as possible after birth in high burden settings.
+
+* Vaccination in low burden settings is dependent on the country specific epidemiology of TB.
+
+* Revaccination is not recommended.
+
+.footnote[
+[1] Global Tuberculosis Report. (2018). URL: https://www.who.int/tb/publications/global_report/en/
+
+]
+---
+
+## Usage - England and Wales<sup>1</sup>
+
+* Universal school-aged vaccination was in 1953.
+
+* In 2005, this programme was withdrawn and instead targeted vaccination of high risk neonates was introduced.
+
+* High risk is defined as those with a parent/grandparent from a country with an incidence rate above 40 per 100,000 or living in an area of England with incidence rates above this level. 
+
+* Policy change was motivated by WHO policy, falling TB incidence rates, and modelling evidence that suggested stopping the BCG schools scheme would have minimal long term effects.<sup>2</sup>
+
+
+
+.footnote[
+
+[1] Systematic review and meta-analysis of the current evidence on the duration of protection by bacillus Calmette-Guérin vaccination against tuberculosis. (2013). 17(37), 1–372, v–vi. http://doi.org/10.3310/hta17370,
+
+[2] Abbott S, Christensen H, Brooks-Pollock E. Reassessing the evidence for universal school-age Bacillus Calmette Guerin (BCG) vaccination in England and Wales, doi: https://doi.org/10.1101/567511
+]
+
+
 
 ---
 
@@ -164,20 +193,168 @@ class: inverse, center, middle
 
 ---
 
-# Protection against active TB
+# Vaccine action
+
+
+* Primarily acts by preventing the development of active, symptomatic disease.<sup>1</sup>
+
+* There is some evidence to suggest that the BCG vaccine also provides partial protection against initial infection.<sup>2</sup>
+
+* There is no evidence that BCG vaccination post infection with TB provides protection from developing active TB disease.<sup>3</sup>
+
+.footnote[
+[1]  Mangtani, P., Abubakar, I., Ariti, C., Beynon, R., Pimpin, L., Fine, P. E. M., et al. (2014). Protection by BCG Vaccine Against Tuberculosis: A Systematic Review of Randomized Controlled Trials. Clinical Infectious Diseases : an Official Publication of the Infectious Diseases Society of America, 58(4), 470–480. http://doi.org/10.1093/cid/cit790,
+
+[2] Roy, A., Eisenhut, M., Harris, R. J., Rodrigues, L. C., Sridhar, S., Habermann, S., et al. (2014). Effect of BCG vaccination against Mycobacterium tuberculosis infection in children: systematic review and meta-analysis. BMJ (Clinical Research Ed.), 349(aug04 5), g4643–g4643. http://doi.org/10.1136/bmj.g4643,
+
+[3] The World Health Organization. (2018). BCG vaccine: WHO position paper. Weekly Epidemiological Record, 1–24.
+]
+
 
 ---
 
-# Protection from initial infection
+# Effectiveness
+
+* The effectiveness of the vaccine is impacted by the age at which it is given, the latitude of the individual, and the period of time that has lapsed since vaccination.
+
+* It has consistently been shown to be highly protective against TB and TB meningitis in children.<sup>1</sup>
+
+* Efficacy in adults ranges from 0% to 78%,<sup>2</sup> with an MRC trial in England finding that BCG was 78% effective.
+
+*  It is estimated that the BCG provides a protective efficacy of 19% (95% confidence interval 8% to 29%) against initial infection with TB.<sup>3</sup>
+
+.small-footnote[
+[1] Colditz, G. A., Brewer, T. F., Berkey, C. S., Wilson, M. E., Burdick, E., Fineberg, H. V., & Mosteller, F. (1994). Efficacy of BCG vaccine in the prevention of tuberculosis. Meta-analysis of the published literature. Jama, 271(9), 698–702. http://doi.org/10.1001/jama.1994.03510330076038.,
+
+[2] Mangtani, P., Abubakar, I., Ariti, C., Beynon, R., Pimpin, L., Fine, P. E. M., et al. (2014). Protection by BCG Vaccine Against Tuberculosis: A Systematic Review of Randomized Controlled Trials. Clinical Infectious Diseases : an Official Publication of the Infectious Diseases Society of America, 58(4), 470–480. http://doi.org/10.1093/cid/cit790
+
+[3] Roy, A., Eisenhut, M., Harris, R. J., Rodrigues, L. C., Sridhar, S., Habermann, S., et al. (2014). Effect of BCG vaccination against Mycobacterium tuberculosis infection in children: systematic review and meta-analysis. BMJ (Clinical Research Ed.), 349(aug04 5), g4643–g4643. http://doi.org/10.1136/bmj.g4643
+
+]
+
+???
+
+* Variability is so large that the authors stated that single point estimate of the effectiveness was not appropriate.
 
 ---
 
 # Variable effectiveness
 
+* Increased protection is associated with distance from the equator.<sup>1</sup>
+
+* One hypothesis for this is that there is a greater density of mycobacterium near the equator that may mask, or block, the protection offered by the BCG vaccine.<sup>2</sup>
+
+* Alternatively much of this latitude effect may be due to stringency in tuberculin skin testing (TST), with lower stringency near the equator.<sup>3</sup>
+
+* Vaccination earlier in life may increase effectiveness.
+
+.footnote[
+[1] Mangtani, P., Abubakar, I., Ariti, C., Beynon, R., Pimpin, L., Fine, P. E. M., et al. (2014). Protection by BCG Vaccine Against Tuberculosis: A Systematic Review of Randomized Controlled Trials. Clinical Infectious Diseases : an Official Publication of the Infectious Diseases Society of America, 58(4), 470–480. http://doi.org/10.1093/cid/cit790
+
+[2] Zwerling, A., Behr, M. A., Verma, A., Brewer, T. F., Menzies, D., & Pai, M. (2011). The BCG World Atlas: a database of global BCG vaccination policies and practices. PLoS Medicine, 8(3), e1001012. http://doi.org/10.1371/journal.pmed.1001012
+
+[3] The World Health Organization. (2018). BCG vaccine: WHO position paper. Weekly Epidemiological Record, 1–24.
+
+]
+
+???
+
+* TST screening tests for the presence of Tuberculosis infection but may give a false positive if the subject has been exposed to other mycobacteria or the BCG vaccine. Reduced stringency would lead to a greater number of TB positive individuals being vaccinated. These individuals would then receive no protection from the vaccine and would lead to a reduced estimate of the effectiveness of the vaccine overall.
+
+
+???
 ---
 
-# Duration of protection
+# Duration of protection<sup>1-3</sup>
 
+
+```{r bcg-eff-est, echo = FALSE}
+load("~/SeabbsPresents/PhD/2019/CVNUK19/data/eff_bcg.rda")
+knitr::kable(eff_bcg, "html", caption = "Estimates of the effectiveness of the BCG vaccine at preventing active TB disease stratified by years since vaccination.")
+```
+
+
+.small-footnote[
+[1] https://www.samabbott.co.uk/thesis
+
+[2] Hart, P. D. A., & Sutherland, I. A. N. (1972). BCG and vole bacillus vaccines in the prevention of tuberculosis in adolescence and early adult life. The American Statistician, 46(3), 371–385. http://doi.org/10.1136/bmj.2.6082.293
+
+[3] Mangtani, P., et al. (2017). The duration of protection of school-aged BCG vaccination in England : a population -based case – control study. International Journal of Epidemiology, 2017, 1–9. http://doi.org/10.1093/ije/dyx141
+
+]
+
+???
+
+* For 0-9 years estimates were derived using Poisson regression from the MRC BCG trial and for 10-29 years estimates were extracted from a more recent case control cohort study.
+
+* Historically it has been thought that protections lasts up to 15 years. Recent evidence indicates that protection may last far longer.
+ ???
+---
+
+class: inverse, center, middle
+
+# Non-specific effects
+
+---
+
+# Reduced all-cause mortality
+
+* A systematic review found that BCG vaccination was associated with reduced all-cause mortality in neonates, with an average relative risk of 0.70 (95% CI 0.49 to 1.01) from five clinical trials and 0.47 (95% CI 0.32 to 0.69) from nine observational studies.<sup>1</sup>
+
+* Still an area of active research it has been difficult to show that the effect continues outside of the first year of life.<sup>2</sup> 
+
+* A Danish case-cohort study in the general population found a protective effect of (aHR) 0.58 (95% CI 0.39 to 0.85).<sup>3</sup>
+
+* An observational study in England and Wales found a protective effect of (aOR) 0.76 (95% CI 0.64 to 0.89) against all-cause mortality in TB cases.<sup>4</sup>
+ 
+.tiny-footnote[
+
+[1] Higgins, J. P. T., Soares-weiser, K., López-lópez, J. A., Kakourou, A., Chaplin, K., Christensen, H., et al. (2016). Association of BCG , DTP , and measles containing vaccines with childhood mortality : systematic review. BMJ (Clinical Research Ed.), i5170. http://doi.org/10.1136/bmj.i5170
+
+
+[2] Pollard, A. J., Finn, A., & Curtis, N. (2017). Non-specific effects of vaccines: plausible and potentially important, but implications uncertain. Archives of Disease in Childhood, 102(11), archdischild–2015–310282. http://doi.org/10.1136/archdischild-2015-310282
+
+[3] Rieckmann, A., Villumsen, M., Sørup, S., Haugaard, L. K., Ravn, H., Roth, A., et al. (2016). Vaccinations against smallpox and tuberculosis are associated with better long-term survival: a Danish case-cohort study 1971–2010. International Journal of Epidemiology, 94, dyw120. http://doi.org/10.1093/ije/dyw120
+
+[4] Abbott S, Christensen H, Lalor MK, Zenner D,Campbell C, Ramsay M, Brooks-Pollock E. Exploring the effects of BCG vaccination in patients diagnosed with tuberculosis: observational study using the Enhanced Tuberculosis Surveillance system, doi: https://doi.org/10.1101/366476
+
+]
+
+---
+
+# Effects on Nontuberculous Mycobacterial infection<sup>1</sup>
+
+* Evidence suggests that the incidence of NTM lymph node inflammation is greatly reduced among BCG-vaccinated children compared with BCG-unvaccinated children.
+
+* Two RCTs indicate that BCG vaccination protects against Buruli ulcers for the first 12 months following vaccination (RR, 0.50 [95% CI, .37–.69]).
+
+* A study also found that individuals with Buruli ulcers are less likely to develop osteomyelitis (bone infection) if they have a BCG scar (RR, 0.36 [95% CI, .22–.58]).
+
+.footnote[
+
+[1] Zimmermann, P., Finn, A., & Curtis, N. (2018). Does BCG Vaccination Protect Against Nontuberculous Mycobacterial Infection? A Systematic Review and Meta-Analysis. J Infect Dis, 218(5), 679–687. http://doi.org/10.1093/infdis/jiy207
+
+]
+---
+
+# Other non-specific effects
+
+*  BCG vaccination may induce innate immune responses which may provide non-specific protection.<sup>1</sup> 
+
+* TB patients with BCG scars have been found to respond better to treatment with earlier sputum smear conversion.<sup>2</sup>
+
+* The BCG is widely used to prevent leprosy, with similar effectiveness as for TB.
+
+* BCG vaccination may augment immune responese to other vaccines.<sup>3</sup> An area of active research!
+
+.small-footnote[
+[1] Kleinnijenhuis, J., Quintin, J., Preijers, F., Joosten, L. A. B., Ifrim, D. C., Saeed, S., et al. (2012). Bacille Calmette-Guerin induces NOD2-dependent nonspecific protection from reinfection via epigenetic reprogramming of monocytes. Proceedings of the National Academy of Sciences of the United States of America, 109(43), 17537–17542. http://doi.org/10.1073/pnas.1202870109,
+
+[2] Jeremiah, K., Praygod, G., Faurholt-Jepsen, D., Range, N., Andersen, A. B., Grewal, H. M. S., & Friis, H. (2010). BCG vaccination status may predict sputum conversion in patients with pulmonary tuberculosis: a new consideration for an old vaccine? Thorax, 65(12), 1072–1076. http://doi.org/10.1136/thx.2010.134767,
+
+[3] Zimmermann, P., Donath, S., Perrett, K. P., Messina, N. L., Ritz, N., Netea, M. G., et al. (2019). The influence of neonatal Bacille Calmette-Guarin (BCG) immunisation on heterologous vaccine responses in infants. Vaccine, 37(28), 3735–3744. http://doi.org/10.1016/j.vaccine.2019.03.016
+
+]
 ---
 
 class: inverse, center, middle
@@ -186,27 +363,51 @@ class: inverse, center, middle
 
 ---
 
-# Leprosy
+# Bladder cancer<sup>1</sup>
 
----
 
-# BCG for bladder cancer
+* BCG has been used to treat non-muscle-invasive bladder cancer for more than 30 years
 
----
+* The mechanism for its effect is still an area of research.
 
-# Non-specific effects of BCG
-
----
+.footnote[
+[1] Redelman-Sidi, G., Glickman, M. S., & Bochner, B. H. (n.d.). The mechanism of action of BCG therapy for bladder cancer—a current perspective. Nature Reviews Urology, 11, 153 EP –.
+]
 
 
 ---
 
 # Bovine TB
 
+* Vaccination with BCG has been shown to reduce the severity and progression of TB in both wild and captive badgers.<sup>1</sup> 
+
+* Vaccination of cattle and/or badgers could contribute to bovine TB control in Great Britain.<sup>2</sup>
+
+* Vaccination of cattle is currently illegal as it would prevent the detection of latent TB using currently available diagnostics.
+
+* New diagnostics are in development and research is ongoing.
+
+.footnote[
+
+[1] Carter, S. P., Chambers, M. A., Rushton, S. P., Shirley, M. D. F., Schuchert, P., Pietravalle, S., et al. (2012). BCG Vaccination Reduces Risk of Tuberculosis Infection in Vaccinated Badgers and Unvaccinated Badger Cubs. PLoS ONE, 7(12), e49833–8. http://doi.org/10.1371/journal.pone.0049833,
+
+[2] Chambers, M. A., Carter, S. P., Wilson, G. J., Jones, G., Brown, E., Hewinson, R. G., & Vordermeier, M. (2014). Vaccination against tuberculosis in badgers and cattle: an overview of the challenges, developments and current research priorities in Great Britain. Veterinary Record, 175(4), 90–96. http://doi.org/10.1136/vr.102581
+]
 ---
 
 # Summary
 
+* Tuberculosis is still a problem both globally and in the UK.
+
+* BCG vaccination has variable effectiveness globally but may be highly effective in the UK.
+
+* Vaccination early in life may provide the highest likelihood of robust protection. 
+
+* BCG vaccination may confer additional non-specific benefits.
+
+* The BCG may be used to treate other diseases.
+
+* It may also be used in animals to control bovine TB. 
 
 ---
 
@@ -214,4 +415,13 @@ class: inverse, center, middle
 
 # Thanks for listening
 
+## Slides: http://bit.ly/MyEssentialR
+
+## Papers: http://bit.ly/seabbs-google-scholar
+
+## Code + tools + apps: http://bit.ly/seabbs-code
+
+## Site: http://bit.ly/seabbs
+
+## Tweet at me: @seabbs
 ---
