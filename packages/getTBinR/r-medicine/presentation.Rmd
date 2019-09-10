@@ -13,43 +13,54 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-
+class: inverse
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
 
-# Aims
 
-1. Introduce [getTBinR](https://www.samabbott.co.uk/getTBinR/)
+# Outline
 
-1. Explore package functionality
+0. Overview
 
-1. Look at package structure
+1. Why
 
-1. Outreach
+2. What
 
-1. Planned functionality
+3. How
 
-1. Wrap up and analysis ideas
+4. Can I do that?
 
 ---
 class: center, middle, inverse
 
-# Background
+# Overview
+
+---
+# Overview
+
+---
+class: center, middle, inverse
+
+# Why
 
 ---
 
-# Motivation
+# Why data access packages
 
-- Attended Epidemics at which there were many great R packages being presented, this made me very jealous!
+---
 
-- All my analytical work is wrapped in R packages so this gave me the tools I needed to quickly make a package.
+# Why does Tuberculosis matter
 
-- Working on the WHO TB data for several projects I found myself constantly downloading it and cleaning it.
 
-- Started developing some tools to make this process quicker, along the way I realised more people might find the package useful.
+--- 
 
-- getTBinR is born!
+# Why the addition of tools for working with the data
+
+---
+class: center, middle, inverse
+
+# What
 
 ---
 
@@ -62,64 +73,15 @@ knitr::include_graphics("img/who-data.png")
 ```
 
 ---
-class: center, middle, inverse
-
-# Set-up
-
----
-# Install the package
-
-CRAN version:
-
-```{r install-getTBinR, eval = FALSE}
-install.packages("getTBinR")
-```
-
-Alternatively install the GitHub development version:
-
-```{r install-dev-getTBinR, eval = FALSE}
-install.packages("devtools")
-devtools::install_github("seabbs/getTBinR")
-```
-
----
-
-# Packages for this presentation
-
-This presentation makes use of the [tidyverse](https://www.tidyverse.org/), and [knitr](https://yihui.name/knitr/). It was built using [xaringan](https://github.com/yihui/xaringan).
-
-```{r packages, message = FALSE}
-library(getTBinR)
-#install.packages("tidyverse")
-library(tidyverse)
-#install.packages("knitr")
-library(knitr)
-```
-
----
 
 # Getting the WHO TB burden data
 
 Get the WHO TB burden data.
 ```{r get-tb-data}
-tb_burden <- getTBinR::get_tb_burden()
+tb_burden <- getTBinR::get_tb_burden(verbose = FALSE)
+
+print(tb_burden, n = 3, n_extra = 10)
 ```
-
-Inspect the dimensions.
-```{r dim-tb}
-dim(tb_burden)
-```
-
----
-
-# Getting the WHO TB burden data
-
-Inspect variables.
-
-```{r var-tb, tidy = TRUE}
-names(tb_burden)
-```
-
 ---
 
 # Getting the WHO TB data dictionary
@@ -128,22 +90,9 @@ Get the WHO TB data dictionary.
 
 ```{r get-dict}
 tb_dict <- getTBinR::get_data_dict()
+
+print(tb_dict, n = 3, n_extra = 10)
 ```
-
-Inspect the dimensions.
-```{r dim-dict}
-dim(tb_dict)
-```
-
-Inspect variables.
-```{r var-dict}
-names(tb_dict)
-```
-
----
-class: center, middle, inverse
-
-# Exploring getTBinR functionality
 
 ---
 
@@ -220,90 +169,69 @@ plot_tb_burden(metric = "e_inc_100k",
 
 ---
 
-# For non R users
+# For non R users: Dashboard
 
-getTBinR has a built in `shiny` dashboard which can be run locally using `getTBinR::run_tb_dashboard()`. Alternatively there is a [hosted version](http://www.seabbs.co.uk/shiny/ExploreGlobalTB/). 
+`{getTBinR}` has a built in `shiny` dashboard which can be run locally using `getTBinR::run_tb_dashboard()`. 
 
 ```{r dashboard-img, echo = FALSE}
 knitr::include_graphics("img/ExploreGlobalTB.png")
 ```
 ---
+
+# For non R users: Report
+
+`{getTBinR}` has a built in `{rmarkdown}` report which can be used to generate a summary report on country level data (`getTBinR::render_country_report()`). 
+
+```{r dashboard-img, echo = FALSE}
+knitr::include_graphics("img/ExploreGlobalTB.png")
+```
+---
+
 class: center, middle, inverse
 
-# Package Structure
-
----
-
-# Documentation
-
-Documentation is built using `roxygen`, this is then used to generate a package website using `pkgdown`. See [here](https://github.com/seabbs/getTBinR/blob/master/_pkgdown.yml) for the yaml and [here](https://www.samabbott.co.uk/getTBinR/index.html) for the site.
-
-```{r doc-img, echo = FALSE}
-knitr::include_graphics("img/pkgdown_site.png")
-```
-
----
-
-# Testing
-
-- Unit tests are implemented using the `testthat` package. 
-
-- The package is then tested on Linux and Mac using [Travis](https://travis-ci.com/), and on Windows using [AppVeyor](https://ci.appveyor.com/login). See [here](https://github.com/seabbs/getTBinR/tree/master/tests/testthat) for tests, [here](https://github.com/seabbs/getTBinR/blob/master/.travis.yml) for travis set-up , and [here] for [here](https://github.com/seabbs/getTBinR/blob/master/appveyor.yml) Appveyor set-up.
-
-- Code coverage is then checked using [Codecov](https://codecov.io/github/seabbs/getTBinR?branch=master). 
-
-Example test:
-
-```{r example-test, eval = FALSE}
-test_that("TB burden data is the same when downloaded using utils::read.csv", {
-  tb_data_utils <- get_tb_burden(download_data = TRUE,
-                                 use_utils = TRUE,
-                                 burden_save_name = "TB_with_utils")
-  
-  skip_on_cran()
-  expect_equal(tb_data, tb_data_utils)
-})
-```
-
----
-class: center, middle, inverse
-
-# Outreach
+# Promotion Promotion Promotion
 
 ---
 
 # Blog posts
 
-I have written several blog posts which have then be editted into vignettes, see [here](https://www.samabbott.co.uk/tags/who/)
+Multiple case studies that were first released as blog posts<sup>1</sup>, via [Rweekly.org](Rweekly.org), and then adapted into package vignettes.
 
 ```{r blog-img, echo = FALSE}
 knitr::include_graphics("img/blog.png")
 ```
 
+.footnote[
+[1] See them here: https://www.samabbott.co.uk/tags/who/
+]
+
 ---
 
-# Gists and Tweets
+# Gists as code examples<sup>1</sup> 
 
-Gists [here](https://gist.github.com/seabbs) and twitter [here](https://twitter.com/seabbs).
+Gists<sup>1</sup> and `#rstats` twitter<sup>2</sup>.
 
 ```{r gists-img, echo = FALSE}
 knitr::include_graphics("img/gists.png")
 ```
 
+.footnote[
+[1] Gists: https://gist.github.com/search?utf8=✓&q=getTBinR
+]
+
 ---
-class: center, middle, inverse
 
-# Planned Funtionality
+# `#rstats` twitter<sup>1</sup> 
 
----
+Tweets annoucing new features, tweets show examples of using the package, tweets discussing new package making tools that have been incorporated. Tweeting about whatever you are using the package for - it's very likely that you will find other are interested.
 
-# Issues
-
-Currently planned functionality has been outlined in the GitHub issues, found [here](https://github.com/seabbs/getTBinR/issues).
-
-```{r issues-img, echo = FALSE}
-knitr::include_graphics("img/issues.png")
+```{r gists-img, echo = FALSE}
+knitr::include_graphics("img/gists.png")
 ```
+
+.footnote[
+[1] `{getTBinR}` on Twitter: https://twitter.com/search?q=%23getTBinR&src=hashtag_click
+]
 
 ---
 
@@ -322,3 +250,4 @@ class: inverse, center, middle
 ## Tweet at me: [@seabbs](https://twitter.com/seabbs)
 
 ---
+

@@ -20,41 +20,52 @@ class: center, middle, inverse, title-slide
 
 ---
 
+class: inverse
 
 
 
-# Aims
+# Outline
 
-1. Introduce [getTBinR](https://www.samabbott.co.uk/getTBinR/)
+0. Overview
 
-1. Explore package functionality
+1. Why
 
-1. Look at package structure
+2. What
 
-1. Outreach
+3. How
 
-1. Planned functionality
-
-1. Wrap up and analysis ideas
+4. Can I do that?
 
 ---
 class: center, middle, inverse
 
-# Background
+# Overview
+
+---
+# Overview
+
+---
+class: center, middle, inverse
+
+# Why
 
 ---
 
-# Motivation
+# Why data access packages
 
-- Attended Epidemics at which there were many great R packages being presented, this made me very jealous!
+---
 
-- All my analytical work is wrapped in R packages so this gave me the tools I needed to quickly make a package.
+# Why does Tuberculosis matter
 
-- Working on the WHO TB data for several projects I found myself constantly downloading it and cleaning it.
 
-- Started developing some tools to make this process quicker, along the way I realised more people might find the package useful.
+--- 
 
-- getTBinR is born!
+# Why the addition of tools for working with the data
+
+---
+class: center, middle, inverse
+
+# What
 
 ---
 
@@ -65,73 +76,33 @@ The WHO provide multiple cleaned datasets via their website. They also have a ba
 ![](img/who-data.png)&lt;!-- --&gt;
 
 ---
-class: center, middle, inverse
-
-# Set-up
-
----
-# Install the package
-
-CRAN version:
-
-
-```r
-install.packages("getTBinR")
-```
-
-Alternatively install the GitHub development version:
-
-
-```r
-install.packages("devtools")
-devtools::install_github("seabbs/getTBinR")
-```
-
----
-
-# Packages for this presentation
-
-This presentation makes use of the [tidyverse](https://www.tidyverse.org/), and [knitr](https://yihui.name/knitr/). It was built using [xaringan](https://github.com/yihui/xaringan).
-
-
-```r
-library(getTBinR)
-#install.packages("tidyverse")
-library(tidyverse)
-#install.packages("knitr")
-library(knitr)
-```
-
----
 
 # Getting the WHO TB burden data
 
 Get the WHO TB burden data.
 
 ```r
-tb_burden &lt;- getTBinR::get_tb_burden()
+tb_burden &lt;- getTBinR::get_tb_burden(verbose = FALSE)
 ```
 
-```
-## Loading data from: /tmp/Rtmp32wWgo/tb_burden.rds
-```
-
-```
-## Loading data from: /tmp/Rtmp32wWgo/mdr_tb.rds
-```
-
-```
-## Joining TB burden data and MDR TB data.
-```
-
-Inspect the dimensions.
+Inspect the data.
 
 ```r
-dim(tb_burden)
+print(tb_burden, n = 3, n_extra = 10)
 ```
 
 ```
-## [1] 3850   68
+## # A tibble: 3,850 x 68
+##   country iso2  iso3  iso_numeric g_whoregion  year e_pop_num e_inc_100k
+##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;       &lt;int&gt;     &lt;int&gt;      &lt;dbl&gt;
+## 1 Afghan… AF    AFG             4 Eastern Me…  2000  20093756        190
+## 2 Afghan… AF    AFG             4 Eastern Me…  2001  20966463        189
+## 3 Afghan… AF    AFG             4 Eastern Me…  2002  21979923        189
+## # … with 3,847 more rows, and 60 more variables: e_inc_100k_lo &lt;dbl&gt;,
+## #   e_inc_100k_hi &lt;dbl&gt;, e_inc_num &lt;int&gt;, e_inc_num_lo &lt;int&gt;,
+## #   e_inc_num_hi &lt;int&gt;, e_tbhiv_prct &lt;dbl&gt;, e_tbhiv_prct_lo &lt;dbl&gt;,
+## #   e_tbhiv_prct_hi &lt;dbl&gt;, e_inc_tbhiv_100k &lt;dbl&gt;,
+## #   e_inc_tbhiv_100k_lo &lt;dbl&gt;, …
 ```
 
 ---
@@ -194,7 +165,7 @@ tb_dict &lt;- getTBinR::get_data_dict()
 ```
 
 ```
-## Loading data from: /tmp/Rtmp32wWgo/dictionary.rds
+## Loading data from: /tmp/Rtmp6HJcLF/dictionary.rds
 ```
 
 Inspect the dimensions.
@@ -233,7 +204,7 @@ vars_of_interest &lt;- getTBinR::search_data_dict(var = c("e_inc_100k"),
 ```
 
 ```
-## Loading data from: /tmp/Rtmp32wWgo/dictionary.rds
+## Loading data from: /tmp/Rtmp6HJcLF/dictionary.rds
 ```
 
 ```
