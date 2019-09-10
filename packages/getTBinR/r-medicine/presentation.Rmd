@@ -29,7 +29,7 @@ options(htmltools.dir.version = FALSE)
 
 3. How
 
-4. Can I do that?
+4. Can I do something similar?
 
 ---
 class: center, middle, inverse
