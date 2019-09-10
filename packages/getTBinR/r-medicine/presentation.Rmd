@@ -1,10 +1,12 @@
 ---
 title: "`{getTBinR}`"
 subtitle: "An R package for accessing and summarising the World Health Organization Tuberculosis data"
-author: "Sam Abbott"
+author: "Sam Abbott (@seabbs)"
+institute: "University of Bristol"
 date: "2019/09/14"
 output:
   xaringan::moon_reader:
+    css: ["default", "default-fonts", "theme.css"]
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -304,16 +306,19 @@ knitr::include_graphics("img/issues.png")
 ```
 
 ---
-class: center, middle, inverse
 
-# Wrap up
+class: inverse, center, middle
 
----
+# Thanks for listening
 
-# Wrap up
+## Slides: http://bit.ly/getTBinR-r-medicine
 
+## Paper: http://bit.ly/getTBinR-paper
 
-Hopefully you enjoyed your whistle stop tour of `getTBinR` and R package construction. I'm interested in your ideas of what can be done with this data. An example;
+## Documentation: http://bit.ly/getTBinR
 
-- Multilevel model to explore country level contributions to incidence rates.
+## Personal Website: http://bit.ly/seabbs
+
+## Tweet at me: [@seabbs](https://twitter.com/seabbs)
+
 ---

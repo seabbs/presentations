@@ -9,13 +9,13 @@ Presentations that I have given or that I am in the process of writing.
 
 ### BCG vaccination
 
-- What do we really know about BCG? Talk given at UK Clinical Vaccine Network Conference 2019. See the slides [here](https://www.samabbott.co.uk/SeabbsPresents/PhD/CVNUK2019/presentation.Rmd) and `/PhD/CVNUK2019/presentation.Rmd`for the code. 
+- What do we really know about BCG? Talk given at UK Clinical Vaccine Network Conference 2019. See the slides [here](https://www.samabbott.co.uk/SeabbsPresents/PhD/CVNUK2019/presentation.html) and `/PhD/CVNUK2019/presentation.Rmd`for the code. 
 
 ### getTBinR
 
-- Introduction to `gettbinr` in R, first given on the 18/03/06 for the BIDD modelling group. See [here](https://www.samabbott.co.uk/SeabbsPresents/packages/getTBinR/intro_to_getTBinR/presentation.Rmd) for the slides and `/packages/getTBinR/intro_to_getTBinR/presentation.Rmd`  for the code.
+- Introduction to `gettbinr` in R, first given on the 18/03/06 for the BIDD modelling group. See [here](https://www.samabbott.co.uk/SeabbsPresents/packages/getTBinR/intro_to_getTBinR/presentation.html) for the slides and `/packages/getTBinR/intro_to_getTBinR/presentation.Rmd`  for the code.
 
-- `{getTBinR}`: An R package for accessing and summarising the World Health Organization Tuberculosis data. Talk given at [R Medicine](https://r-medicine.com) - Boston - on the 19/09/14. See [here](https://www.samabbott.co.uk/SeabbsPresents/packages/getTBinR/r-medicine/presentation.Rmd) for the slides and `/packages/getTBinR/r-medicine/presentation.Rmd`  for the code.
+- `{getTBinR}`: An R package for accessing and summarising the World Health Organization Tuberculosis data. Talk given at [R Medicine](https://r-medicine.com) - Boston - on the 19/09/14. See [here](https://www.samabbott.co.uk/SeabbsPresents/packages/getTBinR/r-medicine/presentation.html) for the slides and `/packages/getTBinR/r-medicine/presentation.Rmd`  for the code.
 
 
 ## Docker

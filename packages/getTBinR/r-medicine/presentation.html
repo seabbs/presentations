@@ -3,9 +3,10 @@
   <head>
     <title>{getTBinR}</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Sam Abbott" />
+    <meta name="author" content="Sam Abbott (@seabbs)" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="theme.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -13,7 +14,8 @@ class: center, middle, inverse, title-slide
 
 # <code>{getTBinR}</code>
 ## An R package for accessing and summarising the World Health Organization Tuberculosis data
-### Sam Abbott
+### Sam Abbott (<span class="citation">@seabbs</span>)
+### University of Bristol
 ### 2019/09/14
 
 ---
@@ -111,19 +113,11 @@ tb_burden &lt;- getTBinR::get_tb_burden()
 ```
 
 ```
-## Downloading data from: https://extranet.who.int/tme/generateCSV.asp?ds=estimates
+## Loading data from: /tmp/Rtmp32wWgo/tb_burden.rds
 ```
 
 ```
-## Saving data to: /tmp/RtmpYZrXw2/tb_burden.rds
-```
-
-```
-## Downloading data from: https://extranet.who.int/tme/generateCSV.asp?ds=mdr_rr_estimates
-```
-
-```
-## Saving data to: /tmp/RtmpYZrXw2/mdr_tb.rds
+## Loading data from: /tmp/Rtmp32wWgo/mdr_tb.rds
 ```
 
 ```
@@ -200,11 +194,7 @@ tb_dict &lt;- getTBinR::get_data_dict()
 ```
 
 ```
-## Downloading data from: https://extranet.who.int/tme/generateCSV.asp?ds=dictionary
-```
-
-```
-## Saving data to: /tmp/RtmpYZrXw2/dictionary.rds
+## Loading data from: /tmp/Rtmp32wWgo/dictionary.rds
 ```
 
 Inspect the dimensions.
@@ -243,7 +233,7 @@ vars_of_interest &lt;- getTBinR::search_data_dict(var = c("e_inc_100k"),
 ```
 
 ```
-## Loading data from: /tmp/RtmpYZrXw2/dictionary.rds
+## Loading data from: /tmp/Rtmp32wWgo/dictionary.rds
 ```
 
 ```
@@ -506,18 +496,21 @@ Currently planned functionality has been outlined in the GitHub issues, found [h
 ![](img/issues.png)&lt;!-- --&gt;
 
 ---
-class: center, middle, inverse
 
-# Wrap up
+class: inverse, center, middle
 
----
+# Thanks for listening
 
-# Wrap up
+## Slides: http://bit.ly/getTBinR-r-medicine
 
+## Paper: http://bit.ly/getTBinR-paper
 
-Hopefully you enjoyed your whistle stop tour of `getTBinR` and R package construction. I'm interested in your ideas of what can be done with this data. An example;
+## Documentation: http://bit.ly/getTBinR
 
-- Multilevel model to explore country level contributions to incidence rates.
+## Personal Website: http://bit.ly/seabbs
+
+## Tweet at me: [@seabbs](https://twitter.com/seabbs)
+
 ---
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
