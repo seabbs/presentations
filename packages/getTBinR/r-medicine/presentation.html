@@ -13,7 +13,7 @@
 class: center, middle, inverse, title-slide
 
 # <code>{getTBinR}</code>
-## An R package for accessing and summarising the World Health Organization Tuberculosis data
+## An R package for accessing and summarising World Health Organization Tuberculosis data
 ### Sam Abbott (<span class="citation">@seabbs</span>)
 ### University of Bristol
 ### 2019/09/14
@@ -34,7 +34,7 @@ class: inverse
 
 3. How
 
-4. Can I do that?
+4. Can I do something similar?
 
 ---
 class: center, middle, inverse
@@ -42,8 +42,14 @@ class: center, middle, inverse
 # Overview
 
 ---
+
 # Overview
 
+&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] Package Docs: [bit.ly/getTBinR](https://bit.ly/getTBinR)
+]
 ---
 class: center, middle, inverse
 
@@ -58,9 +64,9 @@ class: center, middle, inverse
 # Why does Tuberculosis matter
 
 
---- 
+---
 
-# Why the addition of tools for working with the data
+# Why tools?
 
 ---
 class: center, middle, inverse
@@ -71,127 +77,127 @@ class: center, middle, inverse
 
 # World Health Organisation TB data
 
-The WHO provide multiple cleaned datasets via their website. They also have a backend API through which other datasets can be accessed, although these tend to be far from tidy. All analysis ready datasets come with a complete data dictionary.
+* The WHO provide multiple cleaned datasets via their [website](https://www.who.int/tb/country/data/download/en/). ALll datasets are supported by a comprehensive data dictionary.
 
-![](img/who-data.png)&lt;!-- --&gt;
+* Also have an API through which other datasets can be accessed but these tend to be messy. 
+
+&lt;img src="img/who-data.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# Getting the WHO TB burden data
+# What data is available?
 
-Get the WHO TB burden data.
-
-```r
-tb_burden &lt;- getTBinR::get_tb_burden(verbose = FALSE)
-```
-
-Inspect the data.
 
 ```r
-print(tb_burden, n = 3, n_extra = 10)
+getTBinR::available_datasets %&gt;% 
+  dplyr::select(dataset, description)
 ```
 
 ```
-## # A tibble: 3,850 x 68
+## # A tibble: 13 x 2
+##    dataset               description                                       
+##    &lt;chr&gt;                 &lt;chr&gt;                                             
+##  1 Estimates             Generated estimates of TB mortality, incidence, c…
+##  2 Estimates             Generated estimates for the proportion of TB case…
+##  3 Incidence by age and… Generated estimates of TB incidence stratified by…
+##  4 Latent TB infection   Generated estimates incidence of latent TB strati…
+##  5 Notification          TB notification dataset linking to TB notificatio…
+##  6 Drug resistance surv… Country level drug resistance surveillance. Lists…
+##  7 Non-routine HIV surv… Country level, non-routine HIV surveillance data.…
+##  8 Outcomes              Country level TB outcomes data. Lists numeric out…
+##  9 Budget                Current year TB intervention budgets per country.…
+## 10 Expenditure and util… Previous year expenditure on TB interventions. Hi…
+## 11 Policies and services Lists TB policies that have been implemented per …
+## 12 Community engagement  Lists community engagement programmes. Highly det…
+## 13 Laboratories          Country specific laboratory data. Highly detailed…
+```
+
+---
+
+# Get the WHO TB burden data
+
+
+```r
+getTBinR::get_tb_burden(verbose = FALSE,
+                        additional_datasets = "all") %&gt;% 
+  print(tb_burden, n = 3, n_extra = 10)
+```
+
+```
+## # A tibble: 8,290 x 461
 ##   country iso2  iso3  iso_numeric g_whoregion  year e_pop_num e_inc_100k
 ##   &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;       &lt;int&gt;     &lt;int&gt;      &lt;dbl&gt;
 ## 1 Afghan… AF    AFG             4 Eastern Me…  2000  20093756        190
 ## 2 Afghan… AF    AFG             4 Eastern Me…  2001  20966463        189
 ## 3 Afghan… AF    AFG             4 Eastern Me…  2002  21979923        189
-## # … with 3,847 more rows, and 60 more variables: e_inc_100k_lo &lt;dbl&gt;,
+## # … with 8,287 more rows, and 453 more variables: e_inc_100k_lo &lt;dbl&gt;,
 ## #   e_inc_100k_hi &lt;dbl&gt;, e_inc_num &lt;int&gt;, e_inc_num_lo &lt;int&gt;,
 ## #   e_inc_num_hi &lt;int&gt;, e_tbhiv_prct &lt;dbl&gt;, e_tbhiv_prct_lo &lt;dbl&gt;,
 ## #   e_tbhiv_prct_hi &lt;dbl&gt;, e_inc_tbhiv_100k &lt;dbl&gt;,
 ## #   e_inc_tbhiv_100k_lo &lt;dbl&gt;, …
 ```
-
 ---
 
-# Getting the WHO TB burden data
-
-Inspect variables.
+# Get the WHO TB data dictionary
 
 
 ```r
-names(tb_burden)
+getTBinR::get_data_dict(verbose = FALSE) %&gt;% 
+  print(n = 3, n_extra = 10)
 ```
 
 ```
-##  [1] "country"                  "iso2"                    
-##  [3] "iso3"                     "iso_numeric"             
-##  [5] "g_whoregion"              "year"                    
-##  [7] "e_pop_num"                "e_inc_100k"              
-##  [9] "e_inc_100k_lo"            "e_inc_100k_hi"           
-## [11] "e_inc_num"                "e_inc_num_lo"            
-## [13] "e_inc_num_hi"             "e_tbhiv_prct"            
-## [15] "e_tbhiv_prct_lo"          "e_tbhiv_prct_hi"         
-## [17] "e_inc_tbhiv_100k"         "e_inc_tbhiv_100k_lo"     
-## [19] "e_inc_tbhiv_100k_hi"      "e_inc_tbhiv_num"         
-## [21] "e_inc_tbhiv_num_lo"       "e_inc_tbhiv_num_hi"      
-## [23] "e_mort_exc_tbhiv_100k"    "e_mort_exc_tbhiv_100k_lo"
-## [25] "e_mort_exc_tbhiv_100k_hi" "e_mort_exc_tbhiv_num"    
-## [27] "e_mort_exc_tbhiv_num_lo"  "e_mort_exc_tbhiv_num_hi" 
-## [29] "e_mort_tbhiv_100k"        "e_mort_tbhiv_100k_lo"    
-## [31] "e_mort_tbhiv_100k_hi"     "e_mort_tbhiv_num"        
-## [33] "e_mort_tbhiv_num_lo"      "e_mort_tbhiv_num_hi"     
-## [35] "e_mort_100k"              "e_mort_100k_lo"          
-## [37] "e_mort_100k_hi"           "e_mort_num"              
-## [39] "e_mort_num_lo"            "e_mort_num_hi"           
-## [41] "cfr"                      "cfr_lo"                  
-## [43] "cfr_hi"                   "c_newinc_100k"           
-## [45] "c_cdr"                    "c_cdr_lo"                
-## [47] "c_cdr_hi"                 "source_rr_new"           
-## [49] "source_drs_coverage_new"  "source_drs_year_new"     
-## [51] "e_rr_pct_new"             "e_rr_pct_new_lo"         
-## [53] "e_rr_pct_new_hi"          "e_mdr_pct_rr_new"        
-## [55] "source_rr_ret"            "source_drs_coverage_ret" 
-## [57] "source_drs_year_ret"      "e_rr_pct_ret"            
-## [59] "e_rr_pct_ret_lo"          "e_rr_pct_ret_hi"         
-## [61] "e_mdr_pct_rr_ret"         "e_inc_rr_num"            
-## [63] "e_inc_rr_num_lo"          "e_inc_rr_num_hi"         
-## [65] "e_mdr_pct_rr"             "e_rr_in_notified_pulm"   
-## [67] "e_rr_in_notified_pulm_lo" "e_rr_in_notified_pulm_hi"
+## # A tibble: 470 x 4
+##   variable_name  dataset code_list definition                              
+##   &lt;chr&gt;          &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;                                   
+## 1 budget_cpp_ds… Budget  ""        Average cost of drugs budgeted per pati…
+## 2 budget_cpp_mdr Budget  ""        Average cost of drugs budgeted per pati…
+## 3 budget_cpp_xdr Budget  ""        Average cost of drugs budgeted per pati…
+## # … with 467 more rows
 ```
 
 ---
 
-# Getting the WHO TB data dictionary
-
-Get the WHO TB data dictionary.
+# Search for a dataset
 
 
 ```r
-tb_dict &lt;- getTBinR::get_data_dict()
+getTBinR::search_data_dict(dataset = "Estimates",
+                           verbose = FALSE) %&gt;% 
+  dplyr::slice(1:3) %&gt;% 
+  knitr::kable("html")
 ```
 
-```
-## Loading data from: /tmp/Rtmp6HJcLF/dictionary.rds
-```
-
-Inspect the dimensions.
-
-```r
-dim(tb_dict)
-```
-
-```
-## [1] 470   4
-```
-
-Inspect variables.
-
-```r
-names(tb_dict)
-```
-
-```
-## [1] "variable_name" "dataset"       "code_list"     "definition"
-```
-
----
-class: center, middle, inverse
-
-# Exploring getTBinR functionality
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; variable_name &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; dataset &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; code_list &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; definition &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; c_cdr &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estimates &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Case detection rate (all forms) [also known as TB treatment coverage], percent &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; c_cdr_hi &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estimates &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Case detection rate (all forms) [also known as TB treatment coverage], percent, high bound &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; c_cdr_lo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estimates &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Case detection rate (all forms) [also known as TB treatment coverage], percent, low bound &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 
@@ -199,29 +205,39 @@ class: center, middle, inverse
 
 
 ```r
-vars_of_interest &lt;- getTBinR::search_data_dict(var = c("e_inc_100k"),
-                                               def = "incidence")
+getTBinR::search_data_dict(var = "e_inc_100k",
+                           verbose = FALSE) %&gt;% 
+  knitr::kable("html")
 ```
 
-```
-## Loading data from: /tmp/Rtmp6HJcLF/dictionary.rds
-```
-
-```
-## 1 results found for your variable search for e_inc_100k
-```
-
-```
-## 12 results found for your definition search for incidence
-```
-
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; variable_name &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; dataset &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; code_list &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; definition &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; e_inc_100k &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estimates &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Estimated incidence (all forms) per 100 000 population &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 ---
 
-# Search Result
+# Search within variable definitions
 
 
 ```r
-kable(vars_of_interest, "html")
+getTBinR::search_data_dict(def = "incidence",
+                           verbose = FALSE) %&gt;% 
+  dplyr::slice(1:3) %&gt;% 
+  knitr::kable("html")
 ```
 
 &lt;table&gt;
@@ -252,219 +268,194 @@ kable(vars_of_interest, "html")
    &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; Estimated incidence (all forms) per 100 000 population, low bound &lt;/td&gt;
   &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; e_inc_rr_num &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimates &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimated incidence of rifampicin resistant TB (absolute number) &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; e_inc_rr_num_hi &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimates &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimated incidence of rifampicin resistant TB (absolute number): high bound &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; e_inc_rr_num_lo &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimates &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimated incidence of rifampicin resistant TB (absolute number): low bound &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; e_inc_tbhiv_100k &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimates &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimated incidence of TB cases who are HIV-positive per 100 000 population &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; e_inc_tbhiv_100k_hi &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimates &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimated incidence of TB cases who are HIV-positive per 100 000 population, high bound &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; e_inc_tbhiv_100k_lo &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimates &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimated incidence of TB cases who are HIV-positive per 100 000 population, low bound &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; e_inc_tbhiv_num &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimates &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimated incidence of TB cases who are HIV-positive &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; e_inc_tbhiv_num_hi &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimates &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimated incidence of TB cases who are HIV-positive, high bound &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; e_inc_tbhiv_num_lo &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimates &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; Estimated incidence of TB cases who are HIV-positive, low bound &lt;/td&gt;
-  &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 ---
 
-# Map Global Incidence Rates
+# Plot a summary
 
 
 ```r
-getTBinR::map_tb_burden(metric = "e_inc_100k", verbose = FALSE, interactive = FALSE)
+getTBinR::plot_tb_burden_summary(conf = NULL, verbose = FALSE)
 ```
 
-![](presentation_files/figure-html/map-global-inc-1.svg)&lt;!-- --&gt;
+&lt;img src="presentation_files/figure-html/summarise-tb-1.svg" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# Get 10 countries with highest incidence rates in 2016
+# Map
+
+
+```r
+getTBinR::map_tb_burden(metric = "e_inc_100k", verbose = FALSE, 
+                        interactive = FALSE)
+```
+
+&lt;img src="presentation_files/figure-html/map-global-inc-1.svg" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Get the 10 countries with highest incidence rates in 2017
 
 
 ```r
 high_inc_countries &lt;- tb_burden %&gt;% 
-  filter(year == 2016) %&gt;% 
-  group_by(country) %&gt;% 
-  summarise(e_inc_100k = max(e_inc_100k)) %&gt;% 
-  ungroup %&gt;% 
-  arrange(desc(e_inc_100k)) %&gt;% 
-  slice(1:10) %&gt;% 
-  pull(country) %&gt;% 
+  dplyr::filter(year == 2017) %&gt;% 
+  dplyr::arrange(desc(e_inc_100k)) %&gt;% 
+  dplyr::slice(1:10) %&gt;% 
+  dplyr::pull(country) %&gt;% 
   unique
-```
 
----
-
-# 10 countries with highest incidence rates in 2016
-
-
-```r
 high_inc_countries
 ```
 
 ```
 ##  [1] "Lesotho"                              
 ##  [2] "South Africa"                         
-##  [3] "Kiribati"                             
-##  [4] "Philippines"                          
-##  [5] "Mozambique"                           
-##  [6] "Gabon"                                
-##  [7] "Democratic People's Republic of Korea"
-##  [8] "Timor-Leste"                          
-##  [9] "Namibia"                              
-## [10] "Papua New Guinea"
+##  [3] "Philippines"                          
+##  [4] "Mozambique"                           
+##  [5] "Gabon"                                
+##  [6] "Democratic People's Republic of Korea"
+##  [7] "Timor-Leste"                          
+##  [8] "Marshall Islands"                     
+##  [9] "Papua New Guinea"                     
+## [10] "Mongolia"
 ```
-
 ---
 
-# Overview of TB incidence rates
-
-For the countries with the 10 highest incidence rates
+# Overview
 
 
 ```r
-getTBinR::plot_tb_burden_overview(metric = "e_inc_100k", countries = high_inc_countries,
+getTBinR::plot_tb_burden_overview(metric = "e_inc_100k", 
+                                  countries = high_inc_countries,
                                   verbose = FALSE)
 ```
 
-![](presentation_files/figure-html/plot-tb-inc-overview-1.svg)&lt;!-- --&gt;
+&lt;img src="presentation_files/figure-html/plot-tb-inc-overview-1.svg" style="display: block; margin: auto;" /&gt;
 ---
 
-# Trends over time in TB incidence rates
-
-For the countries with the 10 highest incidence rates
+# Trends over time
 
 
 ```r
-plot_tb_burden(metric = "e_inc_100k",  
+getTBinR::plot_tb_burden(metric = "e_inc_100k",  
                countries = high_inc_countries,
                facet = "country", scales = "free_y",
                verbose = FALSE)
 ```
 
-![](presentation_files/figure-html/plot-inc--by-country-1.svg)&lt;!-- --&gt;
+&lt;img src="presentation_files/figure-html/plot-inc-by-country-1.svg" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# For non R users
-
-getTBinR has a built in `shiny` dashboard which can be run locally using `getTBinR::run_tb_dashboard()`. Alternatively there is a [hosted version](http://www.seabbs.co.uk/shiny/ExploreGlobalTB/). 
-
-![](img/ExploreGlobalTB.png)&lt;!-- --&gt;
----
-class: center, middle, inverse
-
-# Package Structure
-
----
-
-# Documentation
-
-Documentation is built using `roxygen`, this is then used to generate a package website using `pkgdown`. See [here](https://github.com/seabbs/getTBinR/blob/master/_pkgdown.yml) for the yaml and [here](https://www.samabbott.co.uk/getTBinR/index.html) for the site.
-
-![](img/pkgdown_site.png)&lt;!-- --&gt;
-
----
-
-# Testing
-
-- Unit tests are implemented using the `testthat` package. 
-
-- The package is then tested on Linux and Mac using [Travis](https://travis-ci.com/), and on Windows using [AppVeyor](https://ci.appveyor.com/login). See [here](https://github.com/seabbs/getTBinR/tree/master/tests/testthat) for tests, [here](https://github.com/seabbs/getTBinR/blob/master/.travis.yml) for travis set-up , and [here] for [here](https://github.com/seabbs/getTBinR/blob/master/appveyor.yml) Appveyor set-up.
-
-- Code coverage is then checked using [Codecov](https://codecov.io/github/seabbs/getTBinR?branch=master). 
-
-Example test:
+# `{shiny}` dashboard
 
 
 ```r
-test_that("TB burden data is the same when downloaded using utils::read.csv", {
-  tb_data_utils &lt;- get_tb_burden(download_data = TRUE,
-                                 use_utils = TRUE,
-                                 burden_save_name = "TB_with_utils")
-  
-  skip_on_cran()
-  expect_equal(tb_data, tb_data_utils)
-})
+getTBinR::run_tb_dashboard()
 ```
 
+&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
 ---
+
+# `{rmarkdown}` report
+
+
+```r
+getTBinR::render_country_report()
+```
+
+&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+
+---
+
 class: center, middle, inverse
 
-# Outreach
+# More examples
+
+---
+
+# Example: 
+
+&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Example: 
+
+&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Example: 
+
+&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Example: 
+
+&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Example: 
+
+&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+class: center, middle, inverse
+
+# Promotion
 
 ---
 
 # Blog posts
 
-I have written several blog posts which have then be editted into vignettes, see [here](https://www.samabbott.co.uk/tags/who/)
+Multiple case studies that were first released as blog posts&lt;sup&gt;1&lt;/sup&gt; - via [Rweekly.org](Rweekly.org) - and then adapted into package vignettes.
 
-![](img/blog.png)&lt;!-- --&gt;
+&lt;img src="img/blog.png" style="display: block; margin: auto;" /&gt;
 
----
 
-# Gists and Tweets
-
-Gists [here](https://gist.github.com/seabbs) and twitter [here](https://twitter.com/seabbs).
-
-![](img/gists.png)&lt;!-- --&gt;
-
----
-class: center, middle, inverse
-
-# Planned Funtionality
+.footnote[
+[1] See them here: https://www.samabbott.co.uk/tags/who/
+]
 
 ---
 
-# Issues
+# Gists&lt;sup&gt;1&lt;/sup&gt; 
 
-Currently planned functionality has been outlined in the GitHub issues, found [here](https://github.com/seabbs/getTBinR/issues).
+&lt;img src="img/gists.png" style="display: block; margin: auto;" /&gt;
 
-![](img/issues.png)&lt;!-- --&gt;
+
+.footnote[
+[1] Gists: [bit.ly/getTBinR-gists](http://bit.ly/getTBinR-gists)
+]
+
+---
+
+# #rstats twitter&lt;sup&gt;1&lt;/sup&gt; 
+
+Tweet about: new features, examples, using new tools in the package, and anything else involving the package .....
+
+&lt;img src="img/gists.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] `{getTBinR}` on Twitter: [bit.ly/getTBinR-twitter](http://bit.ly/getTBinR-twitter)
+]
 
 ---
 
@@ -529,7 +520,24 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 (function() {

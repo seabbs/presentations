@@ -1,6 +1,6 @@
 ---
 title: "`{getTBinR}`"
-subtitle: "An R package for accessing and summarising the World Health Organization Tuberculosis data"
+subtitle: "An R package for accessing and summarising World Health Organization Tuberculosis data"
 author: "Sam Abbott (@seabbs)"
 institute: "University of Bristol"
 date: "2019/09/14"
@@ -16,6 +16,11 @@ output:
 class: inverse
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+
+knitr::opts_chunk$set(echo = TRUE, dpi = 330, fig.align = 'center', dev = 'svg')
+
+library(getTBinR)
+library(tidyverse)
 ```
 
 
@@ -37,8 +42,16 @@ class: center, middle, inverse
 # Overview
 
 ---
+
 # Overview
 
+```{r echo = FALSE, fig.height = 5}
+knitr::include_graphics("img/ExploreGlobalTB.png")
+```
+
+.footnote[
+[1] Package Docs: [bit.ly/getTBinR](https://bit.ly/getTBinR)
+]
 ---
 class: center, middle, inverse
 
@@ -53,9 +66,9 @@ class: center, middle, inverse
 # Why does Tuberculosis matter
 
 
---- 
+---
 
-# Why the addition of tools for working with the data
+# Why tools?
 
 ---
 class: center, middle, inverse
@@ -66,101 +79,118 @@ class: center, middle, inverse
 
 # World Health Organisation TB data
 
-The WHO provide multiple cleaned datasets via their website. They also have a backend API through which other datasets can be accessed, although these tend to be far from tidy. All analysis ready datasets come with a complete data dictionary.
+* The WHO provide multiple cleaned datasets via their [website](https://www.who.int/tb/country/data/download/en/). ALll datasets are supported by a comprehensive data dictionary.
 
-```{r who-data, fig.height = 3, echo = FALSE}
+* Also have an API through which other datasets can be accessed but these tend to be messy. 
+
+```{r who-data, out.width = "80%", echo = FALSE}
 knitr::include_graphics("img/who-data.png")
 ```
 
 ---
 
-# Getting the WHO TB burden data
+# What data is available?
 
-Get the WHO TB burden data.
+```{r what-datasets}
+getTBinR::available_datasets %>% 
+  dplyr::select(dataset, description)
+```
+
+---
+
+# Get the WHO TB burden data
+
 ```{r get-tb-data}
-tb_burden <- getTBinR::get_tb_burden(verbose = FALSE)
-
-print(tb_burden, n = 3, n_extra = 10)
+getTBinR::get_tb_burden(verbose = FALSE,
+                        additional_datasets = "all") %>% 
+  print(tb_burden, n = 3, n_extra = 10)
 ```
 ---
 
-# Getting the WHO TB data dictionary
-
-Get the WHO TB data dictionary.
+# Get the WHO TB data dictionary
 
 ```{r get-dict}
-tb_dict <- getTBinR::get_data_dict()
+getTBinR::get_data_dict(verbose = FALSE) %>% 
+  print(n = 3, n_extra = 10)
+```
 
-print(tb_dict, n = 3, n_extra = 10)
+---
+
+# Search for a dataset
+
+```{r search-dataset}
+getTBinR::search_data_dict(dataset = "Estimates",
+                           verbose = FALSE) %>% 
+  dplyr::slice(1:3) %>% 
+  knitr::kable("html")
 ```
 
 ---
 
 # Search for a variable
 
-```{r search-dict}
-vars_of_interest <- getTBinR::search_data_dict(var = c("e_inc_100k"),
-                                               def = "incidence")
+```{r search-var}
+getTBinR::search_data_dict(var = "e_inc_100k",
+                           verbose = FALSE) %>% 
+  knitr::kable("html")
+```
+---
+
+# Search within variable definitions
+
+```{r search-def}
+getTBinR::search_data_dict(def = "incidence",
+                           verbose = FALSE) %>% 
+  dplyr::slice(1:3) %>% 
+  knitr::kable("html")
 ```
 
 ---
 
-# Search Result
+# Plot a summary
 
-```{r table-search}
-kable(vars_of_interest, "html")
+```{r summarise-tb, fig.height = 4, dev = 'svg'}
+getTBinR::plot_tb_burden_summary(conf = NULL, verbose = FALSE)
 ```
 
 ---
 
-# Map Global Incidence Rates
+# Map
 
-```{r map-global-inc, fig.height = 4, dev = 'svg'}
-getTBinR::map_tb_burden(metric = "e_inc_100k", verbose = FALSE, interactive = FALSE)
+```{r map-global-inc, fig.height = 4, dev = 'svg', fig.align='center'}
+getTBinR::map_tb_burden(metric = "e_inc_100k", verbose = FALSE, 
+                        interactive = FALSE)
 ```
 
 ---
 
-# Get 10 countries with highest incidence rates in 2016
+# Get the 10 countries with highest incidence rates in 2017
 
-```{r get-high-inc-countries}
+```{r get-high-inc-countries, echo = TRUE}
 high_inc_countries <- tb_burden %>% 
-  filter(year == 2016) %>% 
-  group_by(country) %>% 
-  summarise(e_inc_100k = max(e_inc_100k)) %>% 
-  ungroup %>% 
-  arrange(desc(e_inc_100k)) %>% 
-  slice(1:10) %>% 
-  pull(country) %>% 
+  dplyr::filter(year == 2017) %>% 
+  dplyr::arrange(desc(e_inc_100k)) %>% 
+  dplyr::slice(1:10) %>% 
+  dplyr::pull(country) %>% 
   unique
-```
 
----
-
-# 10 countries with highest incidence rates in 2016
-
-```{r high-inc-countries}
 high_inc_countries
 ```
-
 ---
 
-# Overview of TB incidence rates
-
-For the countries with the 10 highest incidence rates
+# Overview
 
 ```{r plot-tb-inc-overview, fig.height = 4, dev = 'svg'}
-getTBinR::plot_tb_burden_overview(metric = "e_inc_100k", countries = high_inc_countries,
+getTBinR::plot_tb_burden_overview(metric = "e_inc_100k", 
+                                  countries = high_inc_countries,
                                   verbose = FALSE)
 ```
 ---
 
-# Trends over time in TB incidence rates
+# Trends over time
 
-For the countries with the 10 highest incidence rates
-
-```{r plot-inc--by-country, fig.height = 3, dev = 'svg'}
-plot_tb_burden(metric = "e_inc_100k",  
+```{r plot-inc-by-country, fig.height = 4, dev = 'svg'}
+getTBinR::plot_tb_burden(metric = "e_inc_100k",  
                countries = high_inc_countries,
                facet = "country", scales = "free_y",
                verbose = FALSE)
@@ -169,37 +199,101 @@ plot_tb_burden(metric = "e_inc_100k",
 
 ---
 
-# For non R users: Dashboard
+# `{shiny}` dashboard
 
-`{getTBinR}` has a built in `shiny` dashboard which can be run locally using `getTBinR::run_tb_dashboard()`. 
+```{r, eval = FALSE}
+getTBinR::run_tb_dashboard()
+```
 
 ```{r dashboard-img, echo = FALSE}
 knitr::include_graphics("img/ExploreGlobalTB.png")
 ```
 ---
 
-# For non R users: Report
+# `{rmarkdown}` report
 
-`{getTBinR}` has a built in `{rmarkdown}` report which can be used to generate a summary report on country level data (`getTBinR::render_country_report()`). 
+```{r, eval = FALSE}
+getTBinR::render_country_report()
+```
 
-```{r dashboard-img, echo = FALSE}
+```{r dashboard-img-2, echo = FALSE}
 knitr::include_graphics("img/ExploreGlobalTB.png")
 ```
+
 ---
 
 class: center, middle, inverse
 
-# Promotion Promotion Promotion
+# More examples
+
+---
+
+# Example: 
+
+```{r echo = FALSE, fig.height = 5}
+knitr::include_graphics("img/ExploreGlobalTB.png")
+```
+
+
+---
+
+# Example: 
+
+```{r echo = FALSE, fig.height = 5}
+knitr::include_graphics("img/ExploreGlobalTB.png")
+```
+
+
+---
+
+# Example: 
+
+```{r echo = FALSE, fig.height = 5}
+knitr::include_graphics("img/ExploreGlobalTB.png")
+```
+
+
+---
+
+# Example: 
+
+```{r echo = FALSE, fig.height = 5}
+knitr::include_graphics("img/ExploreGlobalTB.png")
+```
+
+
+---
+
+# Example: 
+
+```{r echo = FALSE, fig.height = 5}
+knitr::include_graphics("img/ExploreGlobalTB.png")
+```
+
+
+---
+
+```{r echo = FALSE, fig.height = 5}
+knitr::include_graphics("img/ExploreGlobalTB.png")
+```
+
+
+---
+
+class: center, middle, inverse
+
+# Promotion
 
 ---
 
 # Blog posts
 
-Multiple case studies that were first released as blog posts<sup>1</sup>, via [Rweekly.org](Rweekly.org), and then adapted into package vignettes.
+Multiple case studies that were first released as blog posts<sup>1</sup> - via [Rweekly.org](Rweekly.org) - and then adapted into package vignettes.
 
 ```{r blog-img, echo = FALSE}
 knitr::include_graphics("img/blog.png")
 ```
+
 
 .footnote[
 [1] See them here: https://www.samabbott.co.uk/tags/who/
@@ -207,30 +301,29 @@ knitr::include_graphics("img/blog.png")
 
 ---
 
-# Gists as code examples<sup>1</sup> 
-
-Gists<sup>1</sup> and `#rstats` twitter<sup>2</sup>.
+# Gists<sup>1</sup> 
 
 ```{r gists-img, echo = FALSE}
 knitr::include_graphics("img/gists.png")
 ```
 
+
 .footnote[
-[1] Gists: https://gist.github.com/search?utf8=✓&q=getTBinR
+[1] Gists: [bit.ly/getTBinR-gists](http://bit.ly/getTBinR-gists)
 ]
 
 ---
 
-# `#rstats` twitter<sup>1</sup> 
+# #rstats twitter<sup>1</sup> 
 
-Tweets annoucing new features, tweets show examples of using the package, tweets discussing new package making tools that have been incorporated. Tweeting about whatever you are using the package for - it's very likely that you will find other are interested.
+Tweet about: new features, examples, using new tools in the package, and anything else involving the package .....
 
-```{r gists-img, echo = FALSE}
+```{r gists-img-2, out.width = "80%", echo = FALSE}
 knitr::include_graphics("img/gists.png")
 ```
 
 .footnote[
-[1] `{getTBinR}` on Twitter: https://twitter.com/search?q=%23getTBinR&src=hashtag_click
+[1] `{getTBinR}` on Twitter: [bit.ly/getTBinR-twitter](http://bit.ly/getTBinR-twitter)
 ]
 
 ---
