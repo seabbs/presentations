@@ -24,17 +24,18 @@ class: inverse
 
 
 
+
 # Outline
 
-0. Overview
+## 1. Overview
 
-1. Why
+## 2. Why
 
-2. What
+## 3. What
 
-3. How
+## 4. How
 
-4. Can I do something similar?
+## 5. Wrap up
 
 ---
 class: center, middle, inverse
@@ -42,13 +43,23 @@ class: center, middle, inverse
 # Overview
 
 ---
+class: center, middle, inverse
 
-# Overview
+# Slides: [bit.ly/getTBinR-r-medicine](http://bit.ly/getTBinR-r-medicine)
 
-&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+# `{getTBinR}`: [bit.ly/getTBinR](http://bit.ly/getTBinR)
+
+# Dev Environment: [bit.ly/getTBinR-binder](http://bit.ly/getTBinR-binder)
+
+---
+
+# Overview&lt;sup&gt;1, 2&lt;/sup&gt;
+
+&lt;img src="img/overview.png" style="display: block; margin: auto;" /&gt;
 
 .footnote[
-[1] Package Docs: [bit.ly/getTBinR](https://bit.ly/getTBinR)
+[1] Package Docs: [bit.ly/getTBinR](https://bit.ly/getTBinR), 
+[2] JOSS paper: [bit.ly/getTBinR-paper](http://bit.ly/getTBinR-paper)
 ]
 ---
 class: center, middle, inverse
@@ -77,7 +88,7 @@ class: center, middle, inverse
 
 # World Health Organisation TB data
 
-* The WHO provide multiple cleaned datasets via their [website](https://www.who.int/tb/country/data/download/en/). ALll datasets are supported by a comprehensive data dictionary.
+* The WHO provide multiple cleaned datasets via their [website](https://www.who.int/tb/country/data/download/en/). All datasets are supported by a comprehensive data dictionary.
 
 * Also have an API through which other datasets can be accessed but these tend to be messy. 
 
@@ -118,8 +129,9 @@ getTBinR::available_datasets %&gt;%
 
 
 ```r
-getTBinR::get_tb_burden(verbose = FALSE,
-                        additional_datasets = "all") %&gt;% 
+tb_burden &lt;- getTBinR::get_tb_burden(verbose = FALSE,
+                        additional_datasets = "all")
+
   print(tb_burden, n = 3, n_extra = 10)
 ```
 
@@ -296,6 +308,21 @@ getTBinR::map_tb_burden(metric = "e_inc_100k", verbose = FALSE,
 
 ---
 
+# Interactive map
+
+
+```r
+map &lt;- getTBinR::map_tb_burden(metric = "e_inc_100k", 
+                               verbose = FALSE, 
+                               interactive = TRUE)
+```
+
+
+
+
+&lt;iframe src="map.html" width="100%" height="400" id="igraph" scrolling="no" seamless="seamless" frameBorder="0"&gt; &lt;/iframe&gt;
+
+---
 # Get the 10 countries with highest incidence rates in 2017
 
 
@@ -357,7 +384,8 @@ getTBinR::plot_tb_burden(metric = "e_inc_100k",
 getTBinR::run_tb_dashboard()
 ```
 
-&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/ExploreGlobalTB.png" width="80%" style="display: block; margin: auto;" /&gt;
+
 ---
 
 # `{rmarkdown}` report
@@ -367,53 +395,69 @@ getTBinR::run_tb_dashboard()
 getTBinR::render_country_report()
 ```
 
-&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/report.png" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 class: center, middle, inverse
 
-# More examples
+# More examples - see [bit.ly/seabbs](http://bit.ly/seabbs)
 
 ---
 
-# Example: 
-
-&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
-
-
----
-
-# Example: 
-
-&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/pathwork-storyboard-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
 
-# Example: 
-
-&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/storyboard-5-4.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
 
-# Example: 
-
-&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/storyboard-5-5.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
 
-# Example: 
-
-&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/storyboard-7-0.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
 
-&lt;img src="img/ExploreGlobalTB.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/storyboard-gif.gif" width="80%" style="display: block; margin: auto;" /&gt;
 
+---
+class: center, middle, inverse
+
+# How
+---
+
+# How
+
+* Simple code using the `{tidyverse}`, `{data.table}` and `{ggplot2}` + other packages.
+
+* Package building tools including: `{devtools}`, `{usethis}`, `{testthat}`, `{vdiffr}`, and `{pgknet}`.
+
+* R packages&lt;sup&gt;1&lt;/sup&gt; by Hadley Wickham.
+
+* Other tools: git, Travis CI, Appveyor, codevo.io etc.
+
+* Copying `{dplyr}`&lt;sup&gt;2&lt;/sup&gt; ......
+
+.footnote[
+[1] R packages: http://r-pkgs.had.co.nz, [1] `{dplyr}`: https://github.com/tidyverse/dplyr
+]
+
+---
+
+# How 
+
+&lt;img src="img/myessentialr.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] Slides: http://bit.ly/MyEssentialR
+]
 
 ---
 
@@ -423,11 +467,9 @@ class: center, middle, inverse
 
 ---
 
-# Blog posts
+# Blog posts&lt;sup&gt;1&lt;/sup&gt;  - via [Rweekly.org](Rweekly.org)
 
-Multiple case studies that were first released as blog posts&lt;sup&gt;1&lt;/sup&gt; - via [Rweekly.org](Rweekly.org) - and then adapted into package vignettes.
-
-&lt;img src="img/blog.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/blog.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 
 .footnote[
@@ -449,13 +491,54 @@ Multiple case studies that were first released as blog posts&lt;sup&gt;1&lt;/sup
 
 # #rstats twitter&lt;sup&gt;1&lt;/sup&gt; 
 
-Tweet about: new features, examples, using new tools in the package, and anything else involving the package .....
 
-&lt;img src="img/gists.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/twitter.png" width="85%" style="display: block; margin: auto;" /&gt;
 
 .footnote[
 [1] `{getTBinR}` on Twitter: [bit.ly/getTBinR-twitter](http://bit.ly/getTBinR-twitter)
 ]
+
+
+---
+class: center, middle, inverse
+
+# Wrap up
+
+---
+
+# Summary
+
+
+**Why**
+
+* Reducing barriers to entry makes it more likely people will look at your data.
+* Interacting with data makes it easier to understand underlying concepts.
+* Tools speed up analysis and facilitate rapid hypothesis generation (you don't want a great idea getting lost in data cleaning!). 
+* 1/4 of the world's population have Tuberculosis (TB) and it is the number one cause of death from an infectious disease.
+
+**What**
+
+* Download WHO TB data.
+* Tools for exploring the data.
+* Summarise and plot the data.
+* Interact with the data without code (`{shiny}` and `{rmarkdown}`).
+
+**How**
+
+* Using simple code and standardised packaging tools.
+* Following (and copying) what other people have done.
+* Promotion and documentation.
+
+---
+
+# `{idmodelr}`&lt;sup&gt;1&lt;/sup&gt;  (advertisement)
+
+&lt;img src="img/idmodelr.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] `{idmodelr}`: [bit.ly/idmodelr](http://bit.ly/idmodelr)
+]
+
 
 ---
 
@@ -463,17 +546,15 @@ class: inverse, center, middle
 
 # Thanks for listening
 
-## Slides: http://bit.ly/getTBinR-r-medicine
+## Slides: [bit.ly/getTBinR-r-medicine](http://bit.ly/getTBinR-r-medicine)
 
-## Paper: http://bit.ly/getTBinR-paper
+## Paper: [bit.ly/getTBinR-paper](http://bit.ly/getTBinR-paper)
 
-## Documentation: http://bit.ly/getTBinR
+## Documentation: [bit.ly/getTBinR](http://bit.ly/getTBinR)
 
-## Personal Website: http://bit.ly/seabbs
+## Personal Website: [bit.ly/seabbs](http://bit.ly/seabbs)
 
 ## Tweet at me: [@seabbs](https://twitter.com/seabbs)
-
----
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
