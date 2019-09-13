@@ -318,13 +318,13 @@ class: center, middle, inverse
 
 # How
 
-* Simple code using the `{tidyverse}`, `{data.table}`, `{ggplot2}` + other packages.
+* Simple code using the `{tidyverse}`, `{data.table}`, `{ggplot2}` + other `r emo::ji('package')`'s.
 
 * Package building tools including: `{devtools}`, `{usethis}`, `{testthat}`, `{vdiffr}`, and `{pgknet}`.
 
 * R packages<sup>1</sup> by Hadley Wickham.
 
-* Other tools: git, Travis CI, Appveyor, codevo.io etc.
+* Other `r emo::ji('tool')`'s: git, Travis CI, Appveyor, codevo.io etc.
 
 * Copying `{dplyr}`<sup>2</sup> ......
 
