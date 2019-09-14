@@ -29,7 +29,7 @@ library(tidyverse)
 
 ## 1. Overview
 
-## 2. Why
+## 2. Why?
 
 ## 3. What
 
@@ -66,11 +66,11 @@ knitr::include_graphics("img/overview.png")
 ---
 class: center, middle, inverse
 
-# Why
+# Why?
 
 ---
 
-# Why data access `r emo::ji('package')`s
+# Why data access `r emo::ji('package')`s?
 
 * Allows multiple data sets to be combined in a consistent manner, increasing their visibility, and providing a framework for exploring key questions. 
 
@@ -85,7 +85,7 @@ class: center, middle, inverse
 
 ---
 
-# Why Tuberculosis
+# Why Tuberculosis?
 
 * Tuberculosis (TB) is one of the oldest human diseases, with recorded cases in ancient Egypt, renaissance Europe, and in the modern day across the globe.
 
