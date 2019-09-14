@@ -1,7 +1,7 @@
 ---
 title: "`{getTBinR}`"
 subtitle: "An R package for accessing and summarising World Health Organization Tuberculosis data"
-author: "Sam Abbott ( `r emo::ji('mathematician')`;  @seabbs)"
+author: "Sam Abbott (`r emo::ji('mathematician')`;  @seabbs)"
 institute: "University of Bristol"
 date: "2019/09/14"
 output:
