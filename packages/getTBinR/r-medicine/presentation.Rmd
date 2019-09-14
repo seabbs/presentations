@@ -1,7 +1,7 @@
 ---
 title: "`{getTBinR}`"
 subtitle: "An R package for accessing and summarising World Health Organization Tuberculosis data"
-author: "Sam Abbott ( `r emo::ji('mathematician')`  @seabbs)"
+author: "Sam Abbott ( `r emo::ji('mathematician')`;  @seabbs)"
 institute: "University of Bristol"
 date: "2019/09/14"
 output:
@@ -70,7 +70,7 @@ class: center, middle, inverse
 
 ---
 
-# Why data access `r emo::ji('package')`'s
+# Why data access `r emo::ji('package')`s
 
 * Allows multiple data sets to be combined in a consistent manner, increasing their visibility, and providing a framework for exploring key questions. 
 
@@ -95,12 +95,12 @@ class: center, middle, inverse
 
 * TB is preventable and curable, but the majority of cases occur in less economically developed countries and are never diagnosed. 
 
-* It was the focus of my PhD....<sup>2</sup>
+* It was the focus of my PhD `r emo::ji("smile")`....<sup>2</sup>
 
 
 .footnote[
 [1] Source: https://github.com/seabbs/hpru-blog-post-getTBinR,
-[2] Thesis (in bookdown `r emo::ji("smile")`): http://bit.ly/seabbs-thesis
+[2] Thesis (in bookdown): http://bit.ly/seabbs-thesis
 ]
 ---
 class: center, middle, inverse
@@ -318,13 +318,13 @@ class: center, middle, inverse
 
 # How
 
-* Simple code using the `{tidyverse}`, `{data.table}`, `{ggplot2}` + other `r emo::ji('package')`'s.
+* Simple code using the `{tidyverse}`, `{data.table}`, `{ggplot2}` + other `r emo::ji('package')`s.
 
 * Package building tools including: `{devtools}`, `{usethis}`, `{testthat}`, `{vdiffr}`, and `{pgknet}`.
 
 * R packages<sup>1</sup> by Hadley Wickham.
 
-* Other `r emo::ji('tool')`'s: git, Travis CI, Appveyor, codevo.io etc.
+* Other `r emo::ji('tool')`s: git, Travis CI, Appveyor, codecov.io etc.
 
 * Copying `{dplyr}`<sup>2</sup> ......
 
