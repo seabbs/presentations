@@ -206,11 +206,9 @@ map <- getTBinR::map_tb_burden(metric = "e_inc_100k",
 ```
 
 ```{r, echo = FALSE}
-htmlwidgets::saveWidget(map, paste0("map.html"), selfcontained = TRUE)
+widgetframe::frameWidget(map)
 ```
 
-
-<iframe src="map.html" width="100%" height="400" id="igraph" scrolling="no" seamless="seamless" frameBorder="0"> </iframe>
 
 ---
 # Get the 10 countries with highest incidence rates in 2017
