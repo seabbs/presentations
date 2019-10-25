@@ -67,15 +67,18 @@ class: center, middle, inverse
 
 ---
 
-# Overview
+# Statistical and mathematical modelling (Code > Paper)<sup>1</sup>
 
-* Postdoctoral researcher (as of September `r emo::ji('fireworks')`) in infectious disease modelling.
 
-* Focussing on policy relevent modelling of Tuberculosis and BCG vaccination.
 
-* Looking to move into related infectious disease research areas.
+```{r echo = FALSE, out.width = "85%"}
+knitr::include_graphics("img/publications.png")
+```
 
-* Aim is to make research about the code and not the paper.
+
+.footnote[
+[1] [samabbott.co.uk/#publications](https://www.samabbott.co.uk/#publications)
+]
 
 ---
 
@@ -100,21 +103,6 @@ knitr::include_graphics("img/idmodelr.png")
 
 .footnote[
 [1] `{idmodelr}`: [bit.ly/idmodelr](https://bit.ly/idmodelr)
-]
-
----
-
-# Statistical and mathematical modelling (Code > Paper)<sup>1</sup>
-
-
-
-```{r echo = FALSE, out.width = "85%"}
-knitr::include_graphics("img/publications.png")
-```
-
-
-.footnote[
-[1] [samabbott.co.uk/#publications](https://www.samabbott.co.uk/#publications)
 ]
 
 ---
