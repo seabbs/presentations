@@ -259,6 +259,8 @@ class: inverse, center, middle
 
 ## Slides: [bit.ly/seabbs-ssi](http://bit.ly/seabbs-ssi)
 
+## Slide code:  [bit.ly/seabbs-ssi-code](http://bit.ly/seabbs-ssi-code)
+
 ## Use my stuff: [github.com/seabbs](https://www.github.com/seabbs)
 
 ## Read  my stuff: [samabbott.co.uk](https://www.samabbott.co.uk)
