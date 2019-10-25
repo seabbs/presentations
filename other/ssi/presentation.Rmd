@@ -123,7 +123,7 @@ knitr::include_graphics("img/myessentialr.png")
 
 ---
 
-# Presentating
+# Presenting
 
 ```{r echo = FALSE, out.width = "75%"}
 knitr::include_graphics("img/talks.png")
