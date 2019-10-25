@@ -168,9 +168,9 @@ class: center, middle, inverse
 # Raising the profile of software > code > papers
 
 
-* Infectious disease modelling community has varying levels of reproducibility and code quality and software development.
+* Infectious disease modelling community has varying levels of reproducibility, code quality and software development.
 
-* Code is often not shared. 
+* Code is often not shared at all. 
 
 * Even if researchers have the best intentions code can be difficult to use.
 
