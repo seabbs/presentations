@@ -19,7 +19,7 @@ Presentations that I have given or that I am in the process of writing.
 
 ### Sustainable Software Institute fellowship
 
-- Slides for my screencast application to the pSSI fellowship](https://www.software.ac.uk/programmes-and-events/fellowship-programme). See [here](https://www.samabbott.co.uk/SeabbsPresents/other/ssi/presentation.html) for the slides and `/other/ssi/presentation.Rmd`  for the code. The screencast can be see [here]()
+- Slides for my screencast application to the [SSI fellowship](https://www.software.ac.uk/programmes-and-events/fellowship-programme). See [here](https://www.samabbott.co.uk/SeabbsPresents/other/ssi/presentation.html) for the slides and `/other/ssi/presentation.Rmd`  for the code. The screencast can be seen [here]().
 ## Docker
 
 This repository has been developed in docker based on the rocker/tidyverse image, to access the development environment enter the following at the command line (with an active docker daemon running),
