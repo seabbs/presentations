@@ -184,7 +184,7 @@ class: center, middle, inverse
 
 # Running a hackathon for infectious disesase modelling tool development
 
-* Soon to be attending a health economics hackathon that aims to the community about software best practices and also develop tools with the input of domain experts. 
+* Soon to be attending a health economics hackathon that aims to teach the community about software best practices and also develop tools with the input of domain experts. 
 
 * Would like to replicate this for infectious disease modelling.
 
