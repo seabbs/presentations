@@ -30,8 +30,6 @@ knitr::opts_chunk$set(echo = TRUE, dpi = 330, fig.align = 'center', dev = 'svg',
 
 ## 3. What would I do with the fellowship?
 
-## 4. Summary
-
 ---
 class: center, middle, inverse
 
@@ -188,13 +186,13 @@ class: center, middle, inverse
 
 * Keen to form a a community of best practice for infectious disease modellers. Most often it is not about not wanting to produce reusable code but about not knowing how. 
 
-* Often there is little acknowledgement of efforts to be reproducible (reviewers frequently do not look at code). Recognition from the SSI would be a great way of acknowledging the value of this input. 
+* Often there is little acknowledgement of efforts to be reproducible and develop software (reviewers frequently do not look at code). Recognition from the SSI would be a great way of acknowledging the value of this input. 
 
 ---
 
 # Running a hackathon for infectious disesase modelling tool development
 
-* Soon to be attending a health economics hackathon that aims to the community about software best practices and also develop tools with the imput of domain experts. 
+* Soon to be attending a health economics hackathon that aims to the community about software best practices and also develop tools with the input of domain experts. 
 
 * Would like to replicate this for infectious disease modelling.
 
@@ -204,52 +202,11 @@ class: center, middle, inverse
 
 # Expanding my horizons. 
 
-* I feel fairly well versed in what constitutes good R software. 
+* I feel well versed in what constitutes good R software. 
 
 * I know very little about wider best practices or best practices in other languages.
 
 * I would aim to use this fellowship as a chance to connect with a broader community and feedback my findings to infectious disease modellers using R. 
-
----
-class: center, middle, inverse
-
-#  Summary
-
----
-
-# Who am I?
- 
- * Postdoctoral researcher in infectious disease modelling.
- 
- * Background in modelling, data science and mathematics
- 
- * Passionate about moving from papers, to code, and ultimately to software. 
-
----
-
-# What do I do?
-
-* Researching how to improve interventions against infectious disease.
-
-* Focus on reproducibility and tool making.
-
-* Author of multiple CRAN packages.
-
-* Reviewer at JOSS. 
-
-* Active blogger/tweeter/presenter on #rstats, open science and infectious diseases.
-
-* Co-organiser of BristolR
-
----
-
-## What would I do with the fellowship?
-
-* Raising the profile of software > code > papers in the infectious disease modelling community.
-
-* Running a hackathon to engage infectious disease modellers with open source tool development (`{idmodelr}` and beyond).
-
-* Broadening my knowledge of the open source community beyond #rstats (SSI collab workshop etc.).
 
 ---
 
