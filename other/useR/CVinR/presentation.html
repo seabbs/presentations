@@ -22,23 +22,26 @@ class: center, middle, inverse, title-slide
 class: inverse
 
 
+class: center, middle, inverse
 
 
-# Outline
+# Slides: [bit.ly/seabbs-CVinR](http://bit.ly/seabbs-CVinR)
+---
+class: inverse
 
 ## 1. Who am I?
 
-## 2. Alternatives?
+## 2. What are we looking for?
 
-## 3. Options in R
+## 3. Alternatives to R
 
-## 4. Added benefits
+## 4. Options in R
 
-## 5. Examples
+## 5. Added benefits
 
-## 6. Summary
+## 6. Examples
 
-## 7. Advertising
+## 7. Summary
 
 ---
 class: center, middle, inverse
@@ -67,7 +70,27 @@ class: center, middle, inverse
 ---
 class: center, middle, inverse
 
-# Alternatives?
+# What are we looking for?
+
+---
+
+# What are we looking for?
+
+### 1. Impressive.
+
+
+### 2. Easy to make.
+
+
+
+### 3. Easy to update. 
+
+
+
+---
+class: center, middle, inverse
+
+# Alternatives to R
 
 ---
 
@@ -129,6 +152,7 @@ class: center, middle, inverse
 
 * Other literate programming tools?
 
+* Straight HTML
 
 * Straight Markdown
 
@@ -202,6 +226,68 @@ class: center, middle, inverse
 # Examples
 
 ---
+
+# Example: My academic CV
+
+## Aims
+
+* Make CV generation less of a chore (I eventually became scared of my previous LaTex CV).
+
+* Basic changes should be possible using plain text without any technical tools. 
+
+* Update papers without user intervention.
+
+* Relatively hands-off on formatting as I don't really care.
+
+* Split formatting from content.
+
+---
+
+# Example: My academic CV
+
+## What did I end up with?
+
+* `{Rmarkdown}` document that contains the key sections and relatively static information.
+
+* Off the shelf template with no alterations.
+
+* Automated build and deployment on [Travis CI](https://travis-ci.org).
+
+* Content updates possible via plain text file changes on GitHub.
+
+* Papers pulled in from my curated [Google Scholar](https://scholar.google.co.uk/citations?hl=en&amp;user=GqZm90IAAAAJ) profile.
+---
+
+# Example: My academic CV
+
+## Tools
+
+* `{Rmarkdown}`
+
+* `{vitea}`
+
+* `{tinytex}`
+
+* `{tic}`
+
+* `{scholar}`
+
+* `{tidyverse}`
+
+---
+
+# Example: My academic CV
+
+## Final product
+
+See here: [bit.ly/seabbs-cv](http://bit.ly/seabbs-cv)
+
+## Code
+
+See here: [github.com/seabbs/cv](https://github.com/seabbs/cv)
+
+---
+
 class: center, middle, inverse
 
 #Summary
@@ -217,7 +303,7 @@ class: center, middle, inverse
 * Once implemented in R any other package can be used with ease. 
 
 * This allows: automated updates, data read from plain text, paper syncing from google scholar, 
-profile scyncing from Orchid, project updates from GitHub, and many many other things!!
+profile syncing from Orchid, project updates from GitHub, and many many other things!!
 
 * See the links for more info and feel free to contact me with any questions.
 
