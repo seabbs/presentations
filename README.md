@@ -17,9 +17,18 @@ Presentations that I have given or that I am in the process of writing.
 
 - `{getTBinR}`: An R package for accessing and summarising the World Health Organization Tuberculosis data. Talk given at [R Medicine](https://r-medicine.com) - Boston - on the 19/09/14. See [here](https://www.samabbott.co.uk/SeabbsPresents/packages/getTBinR/r-medicine/presentation.html) for the slides and `/packages/getTBinR/r-medicine/presentation.Rmd`  for the code.
 
-### Sustainable Software Institute fellowship
+### UseR
+
+- CV generation in R: a useful use of time? The slides for a talk given at [BristolR](https://www.meetup.com/Bristol-R-User-Group/events/265689282/) on the 19/11/12. See [here](https://www.samabbott.co.uk/SeabbsPresents/other/useR/CVinR/presentation.html) for the slides and `other/useR/CVinR/presentation.Rmd`  for the code.
+
+
+### Fellowships
+
+#### Sustainable Software Institute fellowship
 
 - Slides for my screencast application to the [SSI fellowship](https://www.software.ac.uk/programmes-and-events/fellowship-programme). See [here](https://www.samabbott.co.uk/SeabbsPresents/other/ssi/presentation.html) for the slides and `/other/ssi/presentation.Rmd`  for the code. The screencast can be seen [here]().
+
+
 ## Docker
 
 This repository has been developed in docker based on the rocker/tidyverse image, to access the development environment enter the following at the command line (with an active docker daemon running),
