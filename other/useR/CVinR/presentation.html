@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>CV generation in R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sam Abbott (@seabbs)" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# CV generation in R
+## a useful use of time?
+### Sam Abbott (<span class="citation">@seabbs</span>)
+### University of Bristol
+
+---
+
+class: inverse
+
+
+
+
+# Outline
+
+## 1. Who am I?
+
+## 2. Alternatives?
+
+## 3. Options in R
+
+## 4. Added benefits
+
+## 5. Examples
+
+## 6. Summary
+
+## 7. Advertising
+
+---
+class: center, middle, inverse
+
+# Who am I?
+---
+
+# Who am I?
+
+* **Postdoctoral researcher:** Infectious disease dynamics.&lt;sup&gt;1&lt;/sup&gt;
+
+* **PhD:** Modelling tuberculosis and the optimal usage of the BCG vaccination.&lt;sup&gt;2&lt;/sup&gt;
+
+* **Previously:** Mathematics, theoretical physics, applied mathematics, and data science in finance.
+
+* **Sideline:** Open source software, reproducibilty + hounding people on the internet about reproducibility.
+
+* **Currently:** Modelling zoonotic tuberculosis burden + job hunting.
+
+.footnote[
+[1] More detail here: [https://www.samabbott.co.uk](https://www.samabbott.co.uk/)
+
+[1] Thesis (in bookdown): [bit.ly/seabbs-thesis](http://bit.ly/seabbs-thesis)
+] 
+
+---
+class: center, middle, inverse
+
+# Alternatives?
+
+---
+
+# Word
+
+## Pros
+
+* Everyone likely knows how to use it
+* Some automation maybe possible using plug-ins? 
+
+## Cons
+
+* Can be hard to format documents well.
+* May be difficult to update.
+* Likely to break at random.
+* Customisation.
+* Automation.
+* Closed source.
+* It isn't very cool.
+
+**I think we all know the answer is no... **
+
+---
+
+# LaTex
+
+## Pros
+
+* Creates beautiful documents.
+* Extensively customisable.
+* Open source.
+* Automation available via scripting.
+
+## Cons
+
+* Relatively high barrier to entry (for me).
+* Hard to read in its raw form (for me).
+* Updating may be tedious (for me).
+* Maintaining a LaTex install can be annoying (for me) - time to use `tinytex`.
+* Only a little cool - we didn't all do maths/science degrees.
+
+---
+
+# Automating Latex
+
+&lt;img src="img/latex-automation.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] [Reddit thread](https://www.reddit.com/r/rstats/comments/dc7xn9/cv_made_with_rstats_vitea_and_scholar_automatic/f27v7eh?utm_source=share&amp;utm_medium=web2x)
+
+] 
+
+---
+
+# Other options
+
+
+* Python (any suggested examples?)
+
+* Other literate programming tools?
+
+
+* Straight Markdown
+
+* Other ideas?
+
+---
+
+class: center, middle, inverse
+
+# Options in R
+
+---
+
+# Overview
+
+### [`{Rmarkdown}`](https://rmarkdown.rstudio.com)
+
+Write R code and text -&gt; document `\(+\)` a customised `.tex` or `.css` template.
+
+### [`{vitea}`](https://pkg.mitchelloharawild.com/vitae/) + [`{Rmarkdown}`](https://rmarkdown.rstudio.com)
+
+LaTeX templates, with helpful functions to add content to the documents 
+
+### [`{pagedown}`](https://github.com/rstudio/pagedown) + [`{Rmarkdown}`](https://rmarkdown.rstudio.com)
+
+Paginate the HTML Output of R Markdown with CSS for Print. No need to install LaTeX to get beautiful PDFs.
+
+---
+class: center, middle, inverse
+
+# Added benefits
+
+---
+
+# Benefits
+
+* Easy to read as near plain text.
+
+* All the power of Latex or CSS with a much lower barrier to entry.
+
+* Easy to update - updates can be to text files (i.e. .`csv`'s) that are then pulled into R.
+
+* Access to all other R tooling.
+
+* Automation.
+
+* People will think you are cool (well I will).
+---
+
+# Automation
+
+### [`{tinytex}`](https://github.com/yihui/tinytex)
+
+### [`{scholar}`](https://github.com/jkeirstead/scholar)
+
+### [`{tic}`](https://github.com/ropenscilabs/tic.website)
+
+### [`{rorchid}`](https://github.com/ropensci/rorcid)
+
+### Other
+
+* Logic to generated different CV types for different jobs
+
+* Pull in GitHub projects and commit histories
+
+* Sync with LinkedIn?
+
+---
+class: center, middle, inverse
+
+# Examples
+
+---
+class: center, middle, inverse
+
+#Summary
+
+---
+
+# Summary
+
+* Other options exist but for useRs R offers a nice balance of ease of use and customisation. 
+
+* Essentially combing `{Rmarkdown}` with a template package. 
+
+* Once implemented in R any other package can be used with ease. 
+
+* This allows: automated updates, data read from plain text, paper syncing from google scholar, 
+profile scyncing from Orchid, project updates from GitHub, and many many other things!!
+
+* See the links for more info and feel free to contact me with any questions.
+
+---
+class: center, middle, inverse
+
+# Advertising
+---
+
+# Software: `{getTBinR}`&lt;sup&gt;1, 2, 3&lt;/sup&gt;
+
+&lt;img src="img/getTBinR.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] Package Docs: [bit.ly/getTBinR](https://bit.ly/getTBinR), 
+[2] JOSS paper: [bit.ly/getTBinR-paper](http://bit.ly/getTBinR-paper)
+[3] Blog: [github.com/seabbs/hpru-blog-post-getTBinR](https://github.com/seabbs/hpru-blog-post-getTBinR)
+]
+---
+
+# Software: `{idmodelr}`&lt;sup&gt;1&lt;/sup&gt;  
+
+&lt;img src="img/idmodelr.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] `{idmodelr}`: [bit.ly/idmodelr](https://bit.ly/idmodelr)
+]
+
+---
+
+# Presentations
+
+&lt;img src="img/talks.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] [samabbott.co.uk/talk/](https://www.samabbott.co.uk/talk/)
+[2] [cardiff2019.satrdays.org](https://cardiff2019.satrdays.org)
+]
+
+---
+
+# Blogging on R, modelling, software, etc.&lt;sup&gt;1&lt;/sup&gt;
+
+&lt;img src="img/blog.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] [samabbott.co.uk/post/](https://www.samabbott.co.uk/post/)
+]
+
+---
+
+class: inverse, center, middle
+
+# Thanks for listening!
+
+## Slides: [bit.ly/seabbs-CVinR](http://bit.ly/seabbs-CVinR)
+
+## Slide code:  [bit.ly/seabbs-CVinR-code](http://bit.ly/seabbs-CVinR-code)
+
+## Use my stuff: [github.com/seabbs](https://www.github.com/seabbs)
+
+## Read  my stuff: [samabbott.co.uk](https://www.samabbott.co.uk)
+
+## Tweet at me: [@seabbs](https://twitter.com/seabbs)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

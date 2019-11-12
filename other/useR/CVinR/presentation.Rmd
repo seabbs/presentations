@@ -1,0 +1,294 @@
+---
+title: "CV generation in R"
+subtitle: "a useful use of time?"
+author: "Sam Abbott (@seabbs)"
+institute: "University of Bristol"
+date: ""
+output:
+  xaringan::moon_reader:
+    css: ["default", "default-fonts", "theme.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: inverse
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+knitr::opts_chunk$set(echo = TRUE, dpi = 330, fig.align = 'center', dev = 'svg', eval = TRUE)
+```
+
+
+# Outline
+
+## 1. Who am I?
+
+## 2. Alternatives?
+
+## 3. Options in R
+
+## 4. Added benefits
+
+## 5. Examples
+
+## 6. Summary
+
+## 7. Advertising
+
+---
+class: center, middle, inverse
+
+# Who am I?
+---
+
+# Who am I?
+
+* **Postdoctoral researcher:** Infectious disease dynamics.<sup>1</sup>
+
+* **PhD:** Modelling tuberculosis and the optimal usage of the BCG vaccination.<sup>2</sup>
+
+* **Previously:** Mathematics, theoretical physics, applied mathematics, and data science in finance.
+
+* **Sideline:** Open source software, reproducibilty + hounding people on the internet about reproducibility.
+
+* **Currently:** Modelling zoonotic tuberculosis burden + job hunting.
+
+.footnote[
+[1] More detail here: [https://www.samabbott.co.uk](https://www.samabbott.co.uk/)
+
+[1] Thesis (in bookdown): [bit.ly/seabbs-thesis](http://bit.ly/seabbs-thesis)
+] 
+
+---
+class: center, middle, inverse
+
+# Alternatives?
+
+---
+
+# Word
+
+## Pros
+
+* Everyone likely knows how to use it
+* Some automation maybe possible using plug-ins? 
+
+## Cons
+
+* Can be hard to format documents well.
+* May be difficult to update.
+* Likely to break at random.
+* Customisation.
+* Automation.
+* Closed source.
+* It isn't very cool.
+
+**I think we all know the answer is no... **
+
+---
+
+# LaTex
+
+## Pros
+
+* Creates beautiful documents.
+* Extensively customisable.
+* Open source.
+* Automation available via scripting.
+
+## Cons
+
+* Relatively high barrier to entry (for me).
+* Hard to read in its raw form (for me).
+* Updating may be tedious (for me).
+* Maintaining a LaTex install can be annoying (for me) - time to use `tinytex`.
+* Only a little cool - we didn't all do maths/science degrees.
+
+---
+
+# Automating Latex
+
+```{r, echo = FALSE, fig.height = 5}
+knitr::include_graphics("img/latex-automation.png")
+```
+
+.footnote[
+[1] [Reddit thread](https://www.reddit.com/r/rstats/comments/dc7xn9/cv_made_with_rstats_vitea_and_scholar_automatic/f27v7eh?utm_source=share&utm_medium=web2x)
+
+] 
+
+---
+
+# Other options
+
+
+* Python (any suggested examples?)
+
+* Other literate programming tools?
+
+
+* Straight Markdown
+
+* Other ideas?
+
+---
+
+class: center, middle, inverse
+
+# Options in R
+
+---
+
+# Overview
+
+### [`{Rmarkdown}`](https://rmarkdown.rstudio.com)
+
+Write R code and text -> document $+$ a customised `.tex` or `.css` template.
+
+### [`{vitea}`](https://pkg.mitchelloharawild.com/vitae/) + [`{Rmarkdown}`](https://rmarkdown.rstudio.com)
+
+LaTeX templates, with helpful functions to add content to the documents 
+
+### [`{pagedown}`](https://github.com/rstudio/pagedown) + [`{Rmarkdown}`](https://rmarkdown.rstudio.com)
+
+Paginate the HTML Output of R Markdown with CSS for Print. No need to install LaTeX to get beautiful PDFs.
+
+---
+class: center, middle, inverse
+
+# Added benefits
+
+---
+
+# Benefits
+
+* Easy to read as near plain text.
+
+* All the power of Latex or CSS with a much lower barrier to entry.
+
+* Easy to update - updates can be to text files (i.e. .`csv`'s) that are then pulled into R.
+
+* Access to all other R tooling.
+
+* Automation.
+
+* People will think you are cool (well I will).
+---
+
+# Automation
+
+### [`{tinytex}`](https://github.com/yihui/tinytex)
+
+### [`{scholar}`](https://github.com/jkeirstead/scholar)
+
+### [`{tic}`](https://github.com/ropenscilabs/tic.website)
+
+### [`{rorchid}`](https://github.com/ropensci/rorcid)
+
+### Other
+
+* Logic to generated different CV types for different jobs
+
+* Pull in GitHub projects and commit histories
+
+* Sync with LinkedIn?
+
+---
+class: center, middle, inverse
+
+# Examples
+
+---
+class: center, middle, inverse
+
+#Summary
+
+---
+
+# Summary
+
+* Other options exist but for useRs R offers a nice balance of ease of use and customisation. 
+
+* Essentially combing `{Rmarkdown}` with a template package. 
+
+* Once implemented in R any other package can be used with ease. 
+
+* This allows: automated updates, data read from plain text, paper syncing from google scholar, 
+profile scyncing from Orchid, project updates from GitHub, and many many other things!!
+
+* See the links for more info and feel free to contact me with any questions.
+
+---
+class: center, middle, inverse
+
+# Advertising
+---
+
+# Software: `{getTBinR}`<sup>1, 2, 3</sup>
+
+```{r, echo = FALSE, fig.height = 5}
+knitr::include_graphics("img/getTBinR.png")
+```
+
+.footnote[
+[1] Package Docs: [bit.ly/getTBinR](https://bit.ly/getTBinR), 
+[2] JOSS paper: [bit.ly/getTBinR-paper](http://bit.ly/getTBinR-paper)
+[3] Blog: [github.com/seabbs/hpru-blog-post-getTBinR](https://github.com/seabbs/hpru-blog-post-getTBinR)
+]
+---
+
+# Software: `{idmodelr}`<sup>1</sup>  
+
+```{r echo = FALSE, fig.height = 5}
+knitr::include_graphics("img/idmodelr.png")
+```
+
+.footnote[
+[1] `{idmodelr}`: [bit.ly/idmodelr](https://bit.ly/idmodelr)
+]
+
+---
+
+# Presentations
+
+```{r echo = FALSE, out.width = "75%"}
+knitr::include_graphics("img/talks.png")
+```
+
+.footnote[
+[1] [samabbott.co.uk/talk/](https://www.samabbott.co.uk/talk/)
+[2] [cardiff2019.satrdays.org](https://cardiff2019.satrdays.org)
+]
+
+---
+
+# Blogging on R, modelling, software, etc.<sup>1</sup>
+
+```{r blog-img, out.width = "80%", echo = FALSE}
+knitr::include_graphics("img/blog.png")
+```
+
+.footnote[
+[1] [samabbott.co.uk/post/](https://www.samabbott.co.uk/post/)
+]
+
+---
+
+class: inverse, center, middle
+
+# Thanks for listening!
+
+## Slides: [bit.ly/seabbs-CVinR](http://bit.ly/seabbs-CVinR)
+
+## Slide code:  [bit.ly/seabbs-CVinR-code](http://bit.ly/seabbs-CVinR-code)
+
+## Use my stuff: [github.com/seabbs](https://www.github.com/seabbs)
+
+## Read  my stuff: [samabbott.co.uk](https://www.samabbott.co.uk)
+
+## Tweet at me: [@seabbs](https://twitter.com/seabbs)
+
+
