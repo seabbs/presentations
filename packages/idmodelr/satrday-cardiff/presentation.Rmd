@@ -21,6 +21,7 @@ knitr::opts_chunk$set(echo = TRUE, dpi = 330, fig.align = 'center', dev = 'svg')
 
 library(idmodelr)
 library(tidyverse)
+library(knitr)
 ```
 
 # [`{idmodelr}`](http://bit.ly/idmodelr)<sup>1, 2</sup>
@@ -89,17 +90,221 @@ class: center, middle, inverse
 ---
 class: center, middle, inverse
 
-# Why
+# Why - domain area reasons
 
+---
+
+# Why - domain area motivation
+
+* Infectious disease models increasingly used by public health researchers but require a different knowledge base to other tools.
+
+* Many resources exist for teaching theory but the R infectious disease modelling landscape is fragmented
+
+* Some modelling tasks are repetitive - these can easily be automated.
+
+* Most tools focus on complex research usage. Examples:  [`pomp`](https://kingaa.github.io/pomp/), [`libbi`](http://libbi.org) and [`EpiModel`](http://www.epimodel.org).
+
+* Several tools - notably [`{modelbuilder}`](https://github.com/ahgroup/modelbuilder) and [`{DSAIDE}`](https://ahgroup.github.io/DSAIDE/) - focus on teaching modelling dynamics. 
+
+* Most comparable to [`epirecipes`](http://epirecip.es/epicookbook/chapters/simple). 
 ---
 
 # Why a `r emo::ji('package')`?
 
 
+* A consistent framework on which to build.
+
+* Tools to check the robustness of code (unit tests).
+
+* Makes accessing models much easier and more consistent.
+
+* Provides assurance that all models can be run in a single environment.
+
+* Allows for tools to be developed alongside models to decrease the effort involved in modelling. 
+
+* Documentation on modelling can be provided alongside working, repurposable code examples.
+
 ---
 class: center, middle, inverse
 
 # What
+
+---
+
+#Overview
+
+* Library of infectious disease models (currently deterministic compartmental only - see future work).
+
+* Easy to use (and robust) plotting and model summaries.
+
+* Model and parameter look-up tables.
+
+* Tools for scenario analysis.
+
+* Still in active development with more models, tools, and docs in the pipeline.
+
+---
+class: center, middle, inverse
+
+# What - quick start
+
+
+---
+
+#0. Install
+
+## Install the CRAN version
+
+```{r cran-installation, eval = FALSE}
+install.packages("idmodelr")
+```
+
+## Alternatively install the development version
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("seabbs/idmodelr")
+```
+
+---
+
+# 1. Find a model
+
+
+```{r}
+library(dplyr)
+library(idmodelr)
+
+idmodelr::model_details %>% 
+  dplyr::filter(model_family %in% "SIR")
+```
+
+.footnote[
+Alternatively explore online: [samabbott.co.uk/idmodelr/articles/model_details.html](https://www.samabbott.co.uk/idmodelr/articles/model_details.html)
+]
+
+---
+
+# 2. Check the model implementation
+
+Look at the model + the help file (`?SIR_demographics_ode`).
+
+```{r}
+idmodelr::SIR_demographics_ode
+```
+
+
+---
+
+# 3. Check the parameters
+
+```{r}
+parameters <- idmodelr::required_parameters("SIR_demographics_ode")
+
+parameters
+```
+
+.footnote[
+Alternatively explore online: [samabbott.co.uk/idmodelr/articles/parameter_details.html](https://www.samabbott.co.uk/idmodelr/articles/parameter_details.html)
+]
+
+---
+
+
+# 4. Parameterise the model
+
+```{r}
+parameters <- data.frame(
+  beta = 3, ##Transmission rate = contact rate * transmission probablity
+  tau = 0.5, ## Rate recovcery = 1 / duration of infection
+  mu = 1/81 ## Natural birth/death rate = 1 / average lifespan
+)
+```
+
+# 5. Initialise the model
+
+```{r}
+inits <- data.frame(
+  S = 999,
+  I = 1,
+  R = 0
+  )
+```
+
+---
+
+6. Simulate the model
+
+```{r}
+## Model timespan
+times <- seq(0, 50, 0.1)
+
+## Simulate model as an ODE
+traj <- idmodelr::simulate_model(model = SIR_demographics_ode,
+                                 sim_fn = idmodelr::solve_ode, ##as solving an ode
+                                 inits = inits,
+                                 params = parameters,
+                                 times = times)
+
+
+head(traj, n = 5)
+```
+
+---
+
+# 7. Summarise (WIP)
+
+
+```{r}
+idmodelr::summarise_model(traj) %>% 
+  knitr::kable(format = "html")
+```
+
+---
+
+# 8. Plot (WIP)
+
+```{r, out.width = "60%"}
+idmodelr::plot_model(traj, facet = FALSE)
+```
+
+---
+
+# 9. Vary parameters and simulate
+
+```{r}
+parameters_up <- parameters
+parameters_up[["mu"]] <- 1 / 20
+
+
+traj_up <- idmodelr::simulate_model(
+  model = idmodelr::SIR_demographics_ode,
+  sim_fn = idmodelr::solve_ode,
+  inits, 
+  parameters_up,
+  times)
+
+head(traj_up, n = 5)
+```
+
+---
+
+# 10. Compare models
+
+```{r, out.width = "60%"}
+idmodelr::plot_model(traj, traj_up, facet = TRUE)
+```
+
+---
+class: center, middle, inverse
+
+# More here: [bit.ly/idmodelr](http://bit.ly/idmodelr)
+
+---
+
+class: center, middle, inverse
+
+# Not feeling like coding?
 
 ---
 
@@ -161,6 +366,21 @@ class: center, middle, inverse
 
 # Planned features
 
+* Additional models including: non-exponentially distributed, disease vector models, age stratified models, and many more.
+
+* Stochastic implementations of models (plus more tooling to support).
+
+* Models implemeneted using `Rcpp`, `LibBi` and `Stan`.
+
+* S3 plot and summary methods.
+
+* Model diagrams.
+
+* Extending documentation and case studies.
+
+* Streamlining and improving package tools (in particular scenario analysis tooling).
+
+* Improving links with model fitting packages and post-processing packages (i.e cost effectiveness).
 
 ---
 
@@ -186,7 +406,7 @@ class: center, middle, inverse
 ## -> [`{idmodelr}`](http://bit.ly/idmodelr) = the best thing since sliced bread<sup>*</sup>
 
 .footnote[
-\* *Warning: I'm not a fan of sliced bread*
+\* *Warning: This is not real maths.*
 ]
 
 
@@ -199,7 +419,7 @@ class: center, middle, inverse
 
 * For subject area experts contributing may help link up the package with your work. 
 
-* Contributing to packages is a great way to learn about package development.
+* Contributing to packages is a great way to learn about package development. No domain knowledge is required.
 
 * Heading towards a JOSS publication in 2020 - authorship up for grabs (a bribe for academics).
 
@@ -216,11 +436,23 @@ class: center, middle, inverse
 
 **Why**
 
+* Infectious disease models are widely used both by domain area experts and non-experts. 
+
+* For non-experts, existing tooling and teaching material can be complex, difficult to get started with or fragmented.
+
+* For experts, routine tasks can be easily automated.
+
 **What**
 
-**How**
+* A library of infectious disease models. 
 
-**Future development**
+* Tools to use them.
+
+* Documentation explaining what is going on.
+
+* A `{shiny}` app to get users started quickly with no code.
+
+* A focus on keeping model code simple, easy to find, and easy to modifiy.
 
 ---
 class: center, middle, inverse
@@ -237,7 +469,9 @@ knitr::include_graphics("img/short-course.png")
 
 
 .footnote[
-[1] Website: [bristolmathmodellers.github.io/biddmodellingcourse/](https://bristolmathmodellers.github.io/biddmodellingcourse/), [2] Sign up: [http://bit.ly/bristol-idm-course](http://bit.ly/bristol-idm-course)
+[1] Website: [bristolmathmodellers.github.io/biddmodellingcourse/](https://bristolmathmodellers.github.io/biddmodellingcourse/),
+
+[2] Sign up: [http://bit.ly/bristol-idm-course](http://bit.ly/bristol-idm-course)
 ]
 
 ---
@@ -261,7 +495,7 @@ knitr::include_graphics("img/cv.png")
 ```
 
 .footnote[
-[1] CV: [bit.ly/seabbs-cv](http://bit.ly/seabbs-cv), code: [github.com/seabbs/cv](https://github.com/seabbs/cv), talk: [bit.ly/seabbs-CVinR](http://bit.ly/seabbs-CVinR)
+[1] CV: [bit.ly/seabbs-cv](http://bit.ly/seabbs-cv), Code: [github.com/seabbs/cv](https://github.com/seabbs/cv), Talk: [bit.ly/seabbs-CVinR](http://bit.ly/seabbs-CVinR)
 ]
 
 ---
