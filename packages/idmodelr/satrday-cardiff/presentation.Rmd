@@ -229,6 +229,19 @@ class: center, middle, inverse
 
 ---
 
+## Introduction to infectious disease modelling course
+
+```{r echo = FALSE, fig.height = 5, out.width = "95%"}
+knitr::include_graphics("img/short-course.png")
+```
+
+
+.footnote[
+[1] Website: [bristolmathmodellers.github.io/biddmodellingcourse/](https://bristolmathmodellers.github.io/biddmodellingcourse/), [2] Sign up: [http://bit.ly/bristol-idm-course](http://bit.ly/bristol-idm-course)
+]
+
+---
+
 # `{getTBinR}`<sup>1</sup>
 
 ```{r echo = FALSE, fig.height = 5}
