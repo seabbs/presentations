@@ -18,12 +18,6 @@ Presentations that I have given or that I am in the process of writing. A comple
 
 - What do we really know about BCG? Talk given at UK Clinical Vaccine Network Conference 2019. See the slides [here](https://www.samabbott.co.uk/SeabbsPresents/PhD/CVNUK2019/presentation.html) and `/PhD/CVNUK2019/presentation.Rmd`for the code. 
 
-### Fellowships
-
-#### Sustainable Software Institute fellowship
-
-- Slides for my screencast application to the [SSI fellowship](https://www.software.ac.uk/programmes-and-events/fellowship-programme). See [here](https://www.samabbott.co.uk/SeabbsPresents/other/ssi/presentation.html) for the slides and `/other/ssi/presentation.Rmd`  for the code. The screencast can be seen [here]().
-
 ### Packages
 
 #### getTBinR
