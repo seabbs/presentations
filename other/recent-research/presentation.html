@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Recent Research</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sam Abbott (👩‍🔬; @seabbs)" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="theme.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Recent Research
+### Sam Abbott (👩‍🔬; <span class="citation">@seabbs</span>)
+### University of Bristol
+### 2019/11/18
+
+---
+
+
+
+
+class: inverse
+
+# Outline
+
+## 1. Who am I?
+
+## 3. Research
+
+## 4. Reproducibility
+
+## 5. Software
+
+## 6. Interactive tools
+
+---
+class: center, middle, inverse
+
+# Who am I?
+---
+
+class: inverse, center, middle
+
+## Slides: [bit.ly/seabbs-recent-research](http://bit.ly/seabbs-recent-research)
+
+## Slide code:  [bit.ly/seabbs-recent-research](http://bit.ly/seabbs-recent-research)
+
+## Code: [github.com/seabbs](https://www.github.com/seabbs)
+
+## Personal site + blog: [samabbott.co.uk](https://www.samabbott.co.uk)
+
+## Twitter: [@seabbs](https://twitter.com/seabbs)
+
+---
+
+# Background
+
+* Postdoctoral researcher in infectious disease dynamics at University of Bristol (since September).&lt;sup&gt;1&lt;/sup&gt;
+
+* PhD: Modelling tuberculosis and the optimal usage of the BCG vaccination.&lt;sup&gt;2&lt;/sup&gt;
+
+* Previously: Mathematics, theoretical physics, applied mathematics, and data science in finance. 
+
+.footnote[
+[1] More detail here: [samabbott.co.uk](https://www.samabbott.co.uk/)
+[1] Thesis (in bookdown): [bit.ly/seabbs-thesis](http://bit.ly/seabbs-thesis)
+] 
+
+---
+# Interests
+
+* Infectious disease dynamics.
+
+* Improving infectious disease modelling practice and the scientific workflow more generally.
+
+* Informing policy and enabling others to do so in a more robust manner. 
+
+* Engaging the wider community with science and actively involving them where possible.
+
+---
+class: center, middle, inverse
+
+# Research
+
+---
+
+# Publications&lt;sup&gt;1&lt;/sup&gt;
+
+
+&lt;img src="img/publications.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] [samabbott.co.uk/#publications](https://www.samabbott.co.uk/#publications)
+]
+
+
+---
+
+# Data analysis
+
+
+#### Evidence for associations between BCG vaccination and TB outcomes.&lt;sup&gt;1&lt;/sup&gt;
+
+* Some evidence in the literature for non-specific effects of the BCG vaccine.
+    
+* Selected several that are most commonly reported and then used logistic regression to explore the evidence for associations.
+    
+#### Missing data in the Enhanced Surviellance (ETS) system&lt;sup&gt;2&lt;/sup&gt;
+
+* Structure of missing data.
+    
+* Logistic regression used to explore the relationships between demographic variables and missing data for key outcomes.
+
+
+.footnote[
+
+
+[1] Paper: [doi.org/10.1016/j.vaccine.2019.06.056](https://doi.org/10.1016/j.vaccine.2019.06.056); Code: [github.com/seabbs/ExploreBCGOnOutcomes](https://github.com/seabbs/ExploreBCGOnOutcomes)
+
+[2] Draft: [samabbott.co.uk/ETSMissing/articles/paper.html](https://www.samabbott.co.uk/ETSMissing/articles/paper.html); Code: [github.com/seabbs/ETSMissing](https://github.com/seabbs/ETSMissing)
+]
+ 
+---
+
+# Statistical modelling
+
+#### Estimating the impact of the 2005 change in BCG vaccination policy&lt;sup&gt;1&lt;/sup&gt;
+
+* Regression analysis looking at TB incidence rates pre and post the change in BCG policy in the targeted populations.
+
+* Developed multiple model structures and confounders using expert knowledge. 
+
+* Ranked models based on fit the the available data (WAIC and LOO).
+
+#### Modelling zoonotic tuberculosis burden (*in progress*)
+
+ * Data sourced from multiple sources, cleaned, combined, and mapped
+    
+ * Modelled using GAMs in a bayesian framework so that error in outcome and error in variables can be accounted for. 
+ 
+ * Presented as an R package to be reused as data improves.
+
+[1] Preprint: [doi.org/10.1101/567511](https://doi.org/10.1101/567511); Code: [github.com/seabbs/DirectEffBCGPolicyChange](https://github.com/seabbs/DirectEffBCGPolicyChange)
+
+
+---
+
+# Dynamic modelling
+
+#### Developed a model of BCG vaccination and TB transmission in the UK.
+
+* Semi-stochastic dynamic transmission model with a high -&gt; low risk latency structure.
+
+* Age-stratified with realistic demographics.
+
+* Externally forced based on non-UK born incidence.
+
+
+#### Model fitting
+
+* Model fitting pipeline developed in R including SMC-SMC (using `LibBi` and `rbi`) model comparison (AIC), parameter sensitivity (PRCC), and scenario comparison (mixing structure).
+
+* Final model fit (at PhD hand in) was extremely poor even with post-hoc calibration.
+
+* Conclusion: Model overly complex for approach and needed simplification.
+
+[1] [samabbott.co.uk/thesis/8-model-development.html](https://www.samabbott.co.uk/thesis/8-model-development.html)
+
+---
+
+# Other
+
+
+#### Dynamic model of BCG vaccination and TB transmission globally
+
+* Aim: What is the incidence rate thresold at which an effective TB vaccine should be given to adults rather than neonates (assuming limited duration).
+
+* Model implemented using `pomp`.
+
+* Project dropped in favour of previous modelling project.
+
+#### Contributing to improving cost effectiveness tooling&lt;sup&gt;1&lt;/sup&gt;
+
+ * BCEA package review and overhaul.
+    
+* Profiling Markov modelling code + speeding up using a functional approach and C code. 
+
+[1] https://github.com/giabaio/BCEA/issues
+
+
+---
+class: center, middle, inverse
+
+#Software
+---
+
+# [`{getTBinR}`](https://bit.ly/getTBinR)&lt;sup&gt;1, 2, 3&lt;/sup&gt;
+
+&lt;img src="img/getTBinR.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] Docs: [bit.ly/getTBinR](https://bit.ly/getTBinR), 
+[2] Paper: [bit.ly/getTBinR-paper](http://bit.ly/getTBinR-paper)
+[3] Blog: [github.com/seabbs/hpru-blog-post-getTBinR](https://github.com/seabbs/hpru-blog-post-getTBinR)
+]
+---
+
+# [`{idmodelr}`](https://bit.ly/idmodelr)&lt;sup&gt;1&lt;/sup&gt;  
+
+&lt;img src="img/idmodelr.png" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] Docs: [bit.ly/idmodelr](https://bit.ly/idmodelr), [2] Presentation: [bit.ly/idmodelr-satrday-cardiff](https://bit.ly/idmodelr-satrday-cardiff)
+]
+
+---
+class: center, middle, inverse
+
+# Interactive tools
+---
+
+# Explore infectious disease models
+
+
+```r
+#install.packages("shiny")
+shiny::runGitHub("exploreidmodels", "seabbs")
+```
+
+&lt;img src="img/dashboard.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+[1] More interactive tools here: [samabbott.co.uk/#projects](https://www.samabbott.co.uk/#projects)
+]
+---
+class: inverse, center, middle
+
+# Thanks for listening!
+
+## Slides: [bit.ly/seabbs-recent-research](http://bit.ly/seabbs-recent-research)
+
+## Slide code:  [bit.ly/seabbs-recent-research](http://bit.ly/seabbs-recent-research)
+
+## Code: [github.com/seabbs](https://www.github.com/seabbs)
+
+## Personal site + blog: [samabbott.co.uk](https://www.samabbott.co.uk)
+
+## Twitter: [@seabbs](https://twitter.com/seabbs)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

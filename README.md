@@ -9,6 +9,11 @@ Presentations that I have given or that I am in the process of writing. A comple
 
 ### Academic
 
+
+#### Recent research
+
+- A review of my current research. Talk given/ready for job interviews etc. See the slides [here](https://www.samabbott.co.uk/SeabbsPresents/other/recent-research/presentation.html) and `other/recent-research/presentation.Rmd` for the code.
+
 #### BCG vaccination
 
 - What do we really know about BCG? Talk given at UK Clinical Vaccine Network Conference 2019. See the slides [here](https://www.samabbott.co.uk/SeabbsPresents/PhD/CVNUK2019/presentation.html) and `/PhD/CVNUK2019/presentation.Rmd`for the code. 

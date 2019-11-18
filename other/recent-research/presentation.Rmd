@@ -1,0 +1,260 @@
+---
+title: "Recent Research"
+subtitle: ""
+author: "Sam Abbott (`r emo::ji('mathematician')`;  @seabbs)"
+institute: "University of Bristol"
+date: "2019/11/18"
+output:
+  xaringan::moon_reader:
+    css: ["default", "default-fonts", "theme.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+knitr::opts_chunk$set(echo = TRUE, dpi = 330, fig.align = 'center', dev = 'svg')
+
+
+library(tidyverse)
+library(knitr)
+```
+
+class: inverse
+
+# Outline
+
+## 1. Who am I?
+
+## 3. Research
+
+## 4. Reproducibility
+
+## 5. Software
+
+## 6. Interactive tools
+
+---
+class: center, middle, inverse
+
+# Who am I?
+---
+
+class: inverse, center, middle
+
+## Slides: [bit.ly/seabbs-recent-research](http://bit.ly/seabbs-recent-research)
+
+## Slide code:  [bit.ly/seabbs-recent-research](http://bit.ly/seabbs-recent-research)
+
+## Code: [github.com/seabbs](https://www.github.com/seabbs)
+
+## Personal site + blog: [samabbott.co.uk](https://www.samabbott.co.uk)
+
+## Twitter: [@seabbs](https://twitter.com/seabbs)
+
+---
+
+# Background
+
+* Postdoctoral researcher in infectious disease dynamics at University of Bristol (since September).<sup>1</sup>
+
+* PhD: Modelling tuberculosis and the optimal usage of the BCG vaccination.<sup>2</sup>
+
+* Previously: Mathematics, theoretical physics, applied mathematics, and data science in finance. 
+
+.footnote[
+[1] More detail here: [samabbott.co.uk](https://www.samabbott.co.uk/)
+[1] Thesis (in bookdown): [bit.ly/seabbs-thesis](http://bit.ly/seabbs-thesis)
+] 
+
+---
+# Interests
+
+* Infectious disease dynamics.
+
+* Improving infectious disease modelling practice and the scientific workflow more generally.
+
+* Informing policy and enabling others to do so in a more robust manner. 
+
+* Engaging the wider community with science and actively involving them where possible.
+
+---
+class: center, middle, inverse
+
+# Research
+
+---
+
+# Publications<sup>1</sup>
+
+
+```{r echo = FALSE, out.width = "85%"}
+knitr::include_graphics("img/publications.png")
+```
+
+.footnote[
+[1] [samabbott.co.uk/#publications](https://www.samabbott.co.uk/#publications)
+]
+
+
+---
+
+# Data analysis
+
+
+#### Evidence for associations between BCG vaccination and TB outcomes.<sup>1</sup>
+
+* Some evidence in the literature for non-specific effects of the BCG vaccine.
+    
+* Selected several that are most commonly reported and then used logistic regression to explore the evidence for associations.
+    
+#### Missing data in the Enhanced Surviellance (ETS) system<sup>2</sup>
+
+* Structure of missing data.
+    
+* Logistic regression used to explore the relationships between demographic variables and missing data for key outcomes.
+
+
+.footnote[
+
+
+[1] Paper: [doi.org/10.1016/j.vaccine.2019.06.056](https://doi.org/10.1016/j.vaccine.2019.06.056); Code: [github.com/seabbs/ExploreBCGOnOutcomes](https://github.com/seabbs/ExploreBCGOnOutcomes)
+
+[2] Draft: [samabbott.co.uk/ETSMissing/articles/paper.html](https://www.samabbott.co.uk/ETSMissing/articles/paper.html); Code: [github.com/seabbs/ETSMissing](https://github.com/seabbs/ETSMissing)
+]
+ 
+---
+
+# Statistical modelling
+
+#### Estimating the impact of the 2005 change in BCG vaccination policy<sup>1</sup>
+
+* Regression analysis looking at TB incidence rates pre and post the change in BCG policy in the targeted populations.
+
+* Developed multiple model structures and confounders using expert knowledge. 
+
+* Ranked models based on fit the the available data (WAIC and LOO).
+
+#### Modelling zoonotic tuberculosis burden (*in progress*)
+
+ * Data sourced from multiple sources, cleaned, combined, and mapped
+    
+ * Modelled using GAMs in a bayesian framework so that error in outcome and error in variables can be accounted for. 
+ 
+ * Presented as an R package to be reused as data improves.
+
+[1] Preprint: [doi.org/10.1101/567511](https://doi.org/10.1101/567511); Code: [github.com/seabbs/DirectEffBCGPolicyChange](https://github.com/seabbs/DirectEffBCGPolicyChange)
+
+
+---
+
+# Dynamic modelling
+
+#### Developed a model of BCG vaccination and TB transmission in the UK.
+
+* Semi-stochastic dynamic transmission model with a high -> low risk latency structure.
+
+* Age-stratified with realistic demographics.
+
+* Externally forced based on non-UK born incidence.
+
+
+#### Model fitting
+
+* Model fitting pipeline developed in R including SMC-SMC (using `LibBi` and `rbi`) model comparison (AIC), parameter sensitivity (PRCC), and scenario comparison (mixing structure).
+
+* Final model fit (at PhD hand in) was extremely poor even with post-hoc calibration.
+
+* Conclusion: Model overly complex for approach and needed simplification.
+
+[1] [samabbott.co.uk/thesis/8-model-development.html](https://www.samabbott.co.uk/thesis/8-model-development.html)
+
+---
+
+# Other
+
+
+#### Dynamic model of BCG vaccination and TB transmission globally
+
+* Aim: What is the incidence rate thresold at which an effective TB vaccine should be given to adults rather than neonates (assuming limited duration).
+
+* Model implemented using `pomp`.
+
+* Project dropped in favour of previous modelling project.
+
+#### Contributing to improving cost effectiveness tooling<sup>1</sup>
+
+ * BCEA package review and overhaul.
+    
+* Profiling Markov modelling code + speeding up using a functional approach and C code. 
+
+[1] https://github.com/giabaio/BCEA/issues
+
+
+---
+class: center, middle, inverse
+
+#Software
+---
+
+# [`{getTBinR}`](https://bit.ly/getTBinR)<sup>1, 2, 3</sup>
+
+```{r, echo = FALSE, fig.height = 5}
+knitr::include_graphics("img/getTBinR.png")
+```
+
+.footnote[
+[1] Docs: [bit.ly/getTBinR](https://bit.ly/getTBinR), 
+[2] Paper: [bit.ly/getTBinR-paper](http://bit.ly/getTBinR-paper)
+[3] Blog: [github.com/seabbs/hpru-blog-post-getTBinR](https://github.com/seabbs/hpru-blog-post-getTBinR)
+]
+---
+
+# [`{idmodelr}`](https://bit.ly/idmodelr)<sup>1</sup>  
+
+```{r echo = FALSE, fig.height = 5}
+knitr::include_graphics("img/idmodelr.png")
+```
+
+.footnote[
+[1] Docs: [bit.ly/idmodelr](https://bit.ly/idmodelr), [2] Presentation: [bit.ly/idmodelr-satrday-cardiff](https://bit.ly/idmodelr-satrday-cardiff)
+]
+
+---
+class: center, middle, inverse
+
+# Interactive tools
+---
+
+# Explore infectious disease models
+
+```{r, eval = FALSE}
+#install.packages("shiny")
+shiny::runGitHub("exploreidmodels", "seabbs")
+```
+
+```{r dashboard-img, echo = FALSE, out.width = "80%"}
+knitr::include_graphics("img/dashboard.png")
+```
+
+.footnote[
+[1] More interactive tools here: [samabbott.co.uk/#projects](https://www.samabbott.co.uk/#projects)
+]
+---
+class: inverse, center, middle
+
+# Thanks for listening!
+
+## Slides: [bit.ly/seabbs-recent-research](http://bit.ly/seabbs-recent-research)
+
+## Slide code:  [bit.ly/seabbs-recent-research](http://bit.ly/seabbs-recent-research)
+
+## Code: [github.com/seabbs](https://www.github.com/seabbs)
+
+## Personal site + blog: [samabbott.co.uk](https://www.samabbott.co.uk)
+
+## Twitter: [@seabbs](https://twitter.com/seabbs)
