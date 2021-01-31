@@ -10,8 +10,8 @@ RUN apt-get install -y \
     libqpdf-dev \
     && apt-get clean
 
-ADD . /home/rstudio/SeabbsPresents
+ADD . /home/rstudio/presentations
 
-WORKDIR /home/rstudio/SeabbsPresents
+WORKDIR /home/rstudio/presentations
 
 RUN Rscript -e 'source("install.R")'

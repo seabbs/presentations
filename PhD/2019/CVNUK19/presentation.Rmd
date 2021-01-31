@@ -269,7 +269,7 @@ class: inverse, center, middle
 
 
 ```{r bcg-eff-est, echo = FALSE}
-load("~/SeabbsPresents/PhD/2019/CVNUK19/data/eff_bcg.rda")
+load("~/presentations/PhD/2019/CVNUK19/data/eff_bcg.rda")
 knitr::kable(eff_bcg, "html", caption = "Estimates of the effectiveness of the BCG vaccine at preventing active TB disease stratified by years since vaccination.")
 ```
 
