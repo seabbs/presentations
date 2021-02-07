@@ -1,5 +1,6 @@
 ---
 title: "SSI fellowship application"
+subtitle: "Link to slides: http://bit.ly/sea-ssi-app"
 author: "Sam Abbott (@seabbs)"
 institute: "London School of Hygiene and Tropical Medicine"
 date: ""
@@ -16,20 +17,16 @@ class: inverse
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
-
 knitr::opts_chunk$set(echo = TRUE, dpi = 330, fig.align = 'center', dev = 'svg', eval = TRUE)
 ```
 
-
 # Outline
 
-## 1. Me
+## 1. Who am I?
 
-## 2. My work
+## 2. Why am I applying for an SSI fellowship?
 
-## 3. Why am I applying for the SSI fellowship
-
-## 4. What would I do with it
+## 3. What would I do with an SSI fellowship
 
 ---
 class: center, middle, inverse
@@ -39,76 +36,56 @@ class: center, middle, inverse
 
 # Background
 
-* Postdoctoral researcher in infectious disease dynamics.<sup>1</sup>
+* Research Fellow in real-time modelling of infectious disease outbreaks at the London School of Hygiene and Tropical Medicine.
 
-* PhD: Modelling tuberculosis and the optimal usage of the BCG vaccination.<sup>2</sup>
+* PhD in infectious disease modelling focussing on the optimal usage of the BCG Tuberculosis vaccine.
 
-* Previously: Mathematics, theoretical physics, applied mathematics, and data science in finance. 
+* Working primarily on Covid-19 forecasting, nowcasting, and reactive real-time analysis. 
 
-* Currently: Modelling zoonotic tuberculosis burden and actively looking for new research ideas/funding.
+* Strong interest in open science and science as software.
 
-.footnote[
-[1] More detail here: [https://www.samabbott.co.uk](https://www.samabbott.co.uk/)
-[1] Thesis (in bookdown): [bit.ly/seabbs-thesis](http://bit.ly/seabbs-thesis)
-] 
 ---
 
-# Interests
+# Current focus - 3 main categories
 
-* Infectious disease dynamics.
+1. **Developing methodology** to estimate the [basic](https://wellcomeopenresearch.org/articles/5-17/v1) and [effective](https://wellcomeopenresearch.org/articles/5-112/v2) reproduction (Rt) of Covid-19 and provide short term forecasts of key indicators (cases, hospital admissions, deaths, hospital bed usage etc.). 
 
-* Improving infectious disease modelling practice and scientific workflow more generally.
+2. **Deploying this methodology** as [software](https://epiforecasts.io/EpiNow2/) for use by others and by [ourselves in collaboration with the Met office](https://epiforecasts.io/covid/)<sup>1</sup>. Software used by the WHO, ECDC, and [several groups supporting other governments](https://elifesciences.org/articles/58785). Nowcasts/Forecasts used by the CDC, WHO, UK Government, ECDC etc.
 
-* Informing policy and enabling others to do so in a more robust manner. 
+3. **[Real-time analysis](https://scholar.google.co.uk/citations?hl=en&user=GqZm90IAAAAJ&view_op=list_works&sortby=pubdate) used by policy makers (SPI-M, SAGE, NERVTAG):** <sup>2</sup>
 
-* Engaging the wider community with science and actively involving them where possible.
+  * Weekly estimates of the effective reproduction number, current infections and forecasts/projections of future admissions etc.
+  * Developments in the epidemic, for example tracking nosocomial transmission in April 2020.
+  * The increase in transmissibility and severity measures of the [B.1.1.7 variant](https://github.com/epiforecasts/covid19.sgene.utla.rt).
 
-* Next section for more.
+.footnote[
+  [1] [https://epiforecasts.io/covid/](https://epiforecasts.io/covid/)
+  [2] [http://bit.ly/sea-scholar](http://bit.ly/sea-scholar)
+]
+---
+class: center, middle, inverse
+
+Why am I applying for an SSI fellowship?
+ 
+---
+
+# Why am I applying for an SSI fellowship?
+
+* The Covid-19 pandemic has highlighted the need for combining robust software engineering with epidemological knowledge. 
+
+* Many of the real time analysis projects from the beginning of the pandemic have been shuttered, likely due to technical debt.
+
+* Most of the forecasts that are used by policy makers come from models that are closed source or not fully documented/supported making them only open source in theory.
+
+* Many researchers lack the skills required to make their methods open source and there is little incentive to do so. 
+
+* Research software engineering when considered at all is thought about as packaging of already complete research work rather than a truly integrated part of the process. 
 
 ---
 class: center, middle, inverse
 
-# What do I do?
+In trying to respond to the Covid-19 pandemic I have realised that I simply do not have the software engineering skills required to do so effectively and that this is a systemic problem in infectious disease modelling that hampers our ability to provide advice to policy makers.
 
----
-
-# Statistical and mathematical modelling<sup>1</sup>
-
-
-
-```{r echo = FALSE, out.width = "85%"}
-knitr::include_graphics("img/publications.png")
-```
-
-
-.footnote[
-[1] [samabbott.co.uk/#publications](https://www.samabbott.co.uk/#publications)
-]
-
----
-
-# Software: `{getTBinR}`<sup>1, 2, 3</sup>
-
-```{r, echo = FALSE, fig.height = 5}
-knitr::include_graphics("img/getTBinR.png")
-```
-
-.footnote[
-[1] Package Docs: [bit.ly/getTBinR](https://bit.ly/getTBinR), 
-[2] JOSS paper: [bit.ly/getTBinR-paper](http://bit.ly/getTBinR-paper)
-[3] Blog: [github.com/seabbs/hpru-blog-post-getTBinR](https://github.com/seabbs/hpru-blog-post-getTBinR)
-]
----
-
-# Software: `{idmodelr}`<sup>1</sup>  
-
-```{r echo = FALSE, fig.height = 5}
-knitr::include_graphics("img/idmodelr.png")
-```
-
-.footnote[
-[1] `{idmodelr}`: [bit.ly/idmodelr](https://bit.ly/idmodelr)
-]
 ---
 class: center, middle, inverse
 
@@ -116,51 +93,32 @@ class: center, middle, inverse
 
 ---
 
-# Raising the profile of software > code > papers
+# Personal 
 
+* Use the SSI network to enhance my own software engineering skills so I can more effectively do my work. 
 
-* Infectious disease modelling community has varying levels of reproducibility, code quality and software development.
+* In particular, I would like to expand beyond the silo of R knowledge into the wider community of practice. Infectious disease modelling is generally R centric and I feel this means that innovations from other fields are missed. 
 
-* Code is often not shared at all. 
-
-* Even if researchers have the best intentions code can be difficult to use.
-
-* There maybe little documentation, no testing, and no long term support.
-
-* Keen to form a community of best practice for infectious disease modellers. Most often it is not about not wanting to produce reusable code but about not knowing how. 
-
-* Often there is little acknowledgement of efforts to be reproducible and develop software (reviewers frequently do not look at code). Recognition from the SSI would be a great way of acknowledging the value of this input. 
+* Use some of the fellowship funding for skills training (ideally a Python software development course) and potentially funds for conference travel (such as the Stan conference).
 
 ---
 
-# Running a hackathon for infectious disesase modelling tool development
+# Community
 
-* Soon to be attending a health economics hackathon that aims to teach the community about software best practices and also develop tools with the input of domain experts. 
+* Currently in the process of setting up a software engineering discussion group within LSHTM. Fellowship funding would be a great way to provide customised training to this group many of whom are transitioning from more theoretical areas of research. 
 
-* Would like to replicate this for infectious disease modelling.
+* Interested in potentially highlighting some of the key lessons learnt from the Covid-19 pandemic on the importance of software engineering in research using a short professional animation combined with a blog post. Fellowship funding could be used for this. 
 
-* Key aim would be to build out the community around `{idmodelr}` but any other tooling would be treated on a equal footing. 
+* Advocate for researchers to consider their work as software rather than as a step towards a peer reviewed paper.
 
+* Strongly advocate for RSEs to be hired within LSHTM and in the wider infectious disease modelling community.
 ---
-
-# Expanding my horizons. 
-
-* I feel well versed in what constitutes good R software. 
-
-* I know very little about wider best practices or best practices in other languages.
-
-* Aim is to use this fellowship as a chance to connect with a broader community and feedback my findings to infectious disease modellers using R and the wider R community. 
-
----
-
-class: inverse, center, middle
+class: inverse
 
 # Summary
 
-## Slides: [bit.ly/seabbs-ssi](http://bit.ly/seabbs-ssi)
+* Researching real time analysis methods for infectious diseases. Focussing on the Covid-19 pandemic.
 
-## Slide code:  [bit.ly/seabbs-ssi-code](http://bit.ly/seabbs-ssi-code)
+* Applying as the response from the infectious disease modelling community to the pandemic has shown the impact of not having software engineering skills available.
 
-## Tweet at me: [@seabbs](https://twitter.com/seabbs)
-
-
+* I would use the fellowship to enhance my own knowledge, to advocate for RSEs in infectious disease modelling, support developing a community of practice at LSHTM, and potentially to summarise some of the lessons on the importance of research engineering learnt from the Covid-19 pandemic using a professional animation.
