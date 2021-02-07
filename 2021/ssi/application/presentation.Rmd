@@ -1,6 +1,6 @@
 ---
 title: "SSI fellowship application"
-subtitle: "Link to slides: http://bit.ly/sea-ssi-app"
+subtitle: "Link to slides: http://bit.ly/ssi-app"
 author: "Sam Abbott (@seabbs)"
 institute: "London School of Hygiene and Tropical Medicine"
 date: ""
