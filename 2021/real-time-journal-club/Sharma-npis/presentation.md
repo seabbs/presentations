@@ -14,7 +14,7 @@ _class: invert
 
 #### Aim
 
-Update estimates of the relative effectiveness of NPIs based on data from Europe's second wave (a joint collaboration between the Brauner and flaxman teams).
+Update estimates of the relative effectiveness of NPIs based on data from Europe's second wave (a joint collaboration between the Brauner and Flaxman teams).
 
 ---
 
@@ -31,7 +31,9 @@ Update estimates of the relative effectiveness of NPIs based on data from Europe
 #### Results
  
 - Similar to previous findings.
+
 - Targeted closure of business worked well.
+
 - Reduced impact from school closures
 
 ---
@@ -42,7 +44,7 @@ Update estimates of the relative effectiveness of NPIs based on data from Europe
 
 - Major improvement is in the quality of the data rather than the method.
 
-- The nature of the observational data is highly complex and many of these issues have been insufficiently dealt with.
+- The nature of the observational data is highly complex and many of these issues may have been insufficiently dealt with.
  
 ---
 
