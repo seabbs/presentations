@@ -3,7 +3,7 @@
 
 ### LSHTM Real-time analysis journal club
 
-- Slides from a meeting discussing Understanding the effectiveness of government interventions in Europe’s second wave of COVID-19 by Sharma et al. See [here](https://www.samabbott.co.uk/presentations/2021/real0-time-journal-club/sharma-npis/presentation.html) for slides and `real-time-journal-clu/sharma-npis` for the code
+- Slides from a meeting discussing Understanding the effectiveness of government interventions in Europe’s second wave of COVID-19 by Sharma et al. See [here](https://www.samabbott.co.uk/presentations/2021/real-time-journal-club/sharma-npis/presentation.ppdf) for slides and `real-time-journal-clu/sharma-npis` for the code
 ### Academic citizenship
 
 #### Sustainable Software Institute 
