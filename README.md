@@ -1,4 +1,3 @@
-# Presentations
 
 [![badge](https://img.shields.io/badge/Develop-Presentations-blue.svg)](https://mybinder.org/v2/gh/seabbs/presentations/master?urlpath=rstudio)
 
