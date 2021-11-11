@@ -5,6 +5,6 @@ Presentations that I have given or that I am in the process of writing. Presenta
 
 ## Year
 
-- [2020](https://www.samabbott.co.uk/presentations/2020/)
-- [2021](https://www.samabbott.co.uk/presentations/2021)
+- [2020](https://samabbott.co.uk/presentations/2020/)
+- [2021](https://samabbott.co.uk/presentations/2021)
 
