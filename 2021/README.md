@@ -1,10 +1,16 @@
 
 # Presentations from 2021
 
+### ECDC forecasting hub
+
+- [Slides](https://github.com/epiforecasts/covid19-forecast-hub-europe-website/raw/main/presentations/2021-09-22-epiforecasts-EpiNow2.pdf) from my talk presenting `EpiNow2` to the ECDC forecasting hub.
+
 ### LSHTM Real-time analysis journal club
 
 - Slides from a meeting discussing Understanding the effectiveness of government interventions in Europe’s second wave of COVID-19 by Sharma et al. See [here](https://www.samabbott.co.uk/presentations/2021/real-time-journal-club/sharma-npis/presentation.pdf) for slides and `real-time-journal-clu/sharma-npis` for the code
 ### Academic citizenship
+
+- [Summary and notes](https://notes.samabbott.co.uk/notes/papers/Analysis+of+2.1+million+SARS-CoV-2+genomes+identifies+mutations+associated+with+transmissibility) presented at a meeting discussing "Analysis of 2.1 million SARS-CoV-2 genomes identifies mutations associated with transmissibility" by Obermeyer et al. 
 
 #### Sustainable Software Institute 
 
