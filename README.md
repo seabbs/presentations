@@ -7,5 +7,5 @@ Presentations that I have given organised by year. See year specific repositorie
 
 - [2022](https://samabbott.co.uk/presentations/2022)
 - [2021](https://samabbott.co.uk/presentations/2021)
-- [2020](https://samabbott.co.uk/presentations/2020/)
+- [2020](https://samabbott.co.uk/presentations/2020)
 
