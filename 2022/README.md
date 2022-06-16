@@ -1,6 +1,10 @@
 
 # Presentations from 2022
 
+### Real-time estimation of the effective reproduction number
+
+[Slides](https://samabbott.co.uk/presentations/2022/CNVAC-real-time-estimation-of-the-reproduction-number.pdf) from my talk "Real-time estimation of the effective reproduction" as part of the CNVAC 2022 Seminar series. 
+
 ### Hierarchical nowcasting of counts with an application to COVID-19 hospitalisations in Germany
 
 [Slides](https://samabbott.co.uk/presentations/2022/nowcasting-sacema.pdf) from my talk "Hierarchical nowcasting of counts with an application to COVID-19 hospitalisations in Germany" given at [SACEMA](https://www.sacema.org/about-us/) as part of an in person visit. 
