@@ -7,7 +7,9 @@
 
 ### Hierarchical nowcasting of counts with an application to COVID-19 hospitalisations in Germany
 
-[Slides](https://samabbott.co.uk/presentations/2022/nowcasting-sacema.pdf) from my talk "Hierarchical nowcasting of counts with an application to COVID-19 hospitalisations in Germany" given at [SACEMA](https://www.sacema.org/about-us/) as part of an in person visit. 
+[Slides](https://samabbott.co.uk/presentations/2022/nowcasting-sacema.pdf) from my talk "Hierarchical nowcasting of counts with an application to COVID-19 hospitalisations in Germany" given at [SACEMA](https://www.sacema.org/about-us/) as part of an in-person visit. 
+
+A shorter version of this talk was also given at [UseR 2022](https://user2022.r-project.org/program/talks/#session-31-forecasting-nowcasting) as part of the forecasting and nowcasting session. Slides are available [here](https://samabbott.co.uk/presentations/2022/nowcasting_useR.pdf).
 
 ### How can governments plan for the next pandemic?
 
