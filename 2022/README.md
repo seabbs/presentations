@@ -1,6 +1,11 @@
 
 # Presentations from 2022
 
+
+### Evaluating a simplified forecast model in comparison to the ECDC forecasting hub ensemble
+
+[Slides](https://samabbott.co.uk/presentations/2022/epiforecasts-surrogate-ecdc-ensemble-model.pdf) for my talk to the June 30th [Epiforecasts](https://epiforecasts.io/) group meeting on some in progress work developing a surrogate model for the ECDC forecast hub ensemble. 
+
 ### Real-time estimation of the effective reproduction number
 
 [Slides](https://samabbott.co.uk/presentations/2022/CNVAC-real-time-estimation-of-the-reproduction-number.pdf) from my talk "Real-time estimation of the effective reproduction" as part of the CNVAC 2022 Seminar series. 
