@@ -1,6 +1,9 @@
 
 # Presentations from 2022
 
+### Training experts to be forecasters
+
+[Slides](samabbott.co.uk/presentations/2022/experts-as-forecasters.pdf) from my talk on training experts to be forecasts as part of the EA lightning talks sesssion. See the full article [here](https://forum.effectivealtruism.org/posts/WFbf2d4LHjgvWJCus/cause-exploration-prizes-training-experts-to-be-forecasters).
 
 ### Evaluating a simplified forecast model in comparison to the ECDC forecasting hub ensemble
 
