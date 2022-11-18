@@ -1,6 +1,11 @@
 
 # Presentations from 2022
 
+### Evaluating an epidemiologically motivated surrogate model of a multi-model ensemble - EU COVID-19 Forecast Hub November meeting
+
+[Slides](https://samabbott.co.uk/presentations/2022/surrogate-ensemble-forecast-hub.pdf) from a talk to the EU COVID-19 Forecast Hub 
+on our recent preprint [Evaluating an epidemiologically motivated surrogate model of a multi-model ensemble](https://www.medrxiv.org/content/10.1101/2022.10.12.22280917v1).
+
 ### Training experts to be forecasters
 
 [Slides](https://samabbott.co.uk/presentations/2022/experts-as-forecasters.pdf) from my talk on training experts to be forecasts as part of the EA lightning talks sesssion. See the full article [here](https://forum.effectivealtruism.org/posts/WFbf2d4LHjgvWJCus/cause-exploration-prizes-training-experts-to-be-forecasters).
