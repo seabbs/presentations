@@ -3,7 +3,7 @@
 
 ### Evaluating an epidemiologically motivated surrogate model of a multi-model ensemble - EU COVID-19 Forecast Hub November meeting
 
-[Slides](https://samabbott.co.uk/presentations/2022/surrogate-ensemble-forecast-hub.pdf) from a talk to the EU COVID-19 Forecast Hub 
+[Slides](https://samabbott.co.uk/presentations/2022/surrogate-ensemble-forecasting-hub.pdf) from a talk to the EU COVID-19 Forecast Hub 
 on our recent preprint [Evaluating an epidemiologically motivated surrogate model of a multi-model ensemble](https://www.medrxiv.org/content/10.1101/2022.10.12.22280917v1).
 
 ### Training experts to be forecasters
