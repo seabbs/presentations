@@ -1,6 +1,10 @@
 
 # Presentations from 2023
 
+### COVID-19 Relfections event - My pandemic
+
+Slides are available [here](https://samabbott.co.uk/presentations/2023/covid-reflections-my-pandemic.pdf).
+
 ### Epinowcast: Flexible hierarchical nowcasting - Forecasting infectious disease incidence for public health
 
 Slides are available [here](https://samabbott.co.uk/presentations/2023/royal-society-epinowcast.pdf).
