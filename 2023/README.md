@@ -1,6 +1,10 @@
 
 # Presentations from 2023
 
+### Clinic on Meaningful Modeling of Epidemiological Data - Overview of my COVID-19 research
+
+Slides are available [here](https://samabbott.co.uk/presentations/2023/mmed-2023-real-time-analysis-of-infectious-disease.pdf)
+
 ### COVID-19 Relfections event - My pandemic
 
 Slides are available [here](https://samabbott.co.uk/presentations/2023/covid-reflections-my-pandemic.pdf).
