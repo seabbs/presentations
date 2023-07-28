@@ -1,9 +1,13 @@
 
 # Presentations from 2023
 
+### CFA CDC July team meeting - The UK COVID-19 modelling response
+
+Slides are available [here](https://samabbott.co.uk/presentations/2023/2023-07-28-the-uk-COVID-19-modelling-response.pdf).
+
 ### Clinic on Meaningful Modeling of Epidemiological Data - Overview of my COVID-19 research
 
-Slides are available [here](https://samabbott.co.uk/presentations/2023/mmed-2023-real-time-analysis-of-infectious-disease.pdf)
+Slides are available [here](https://samabbott.co.uk/presentations/2023/mmed-2023-real-time-analysis-of-infectious-disease.pdf).
 
 ### COVID-19 Relfections event - My pandemic
 
